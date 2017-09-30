@@ -1,0 +1,128 @@
+@CHARSET "ISO-8859-1";
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+ul li {
+	text-decoration: none;
+	list-style: none;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+/*div che contiene il logo*/
+.logo {
+	position: relative;
+	width: 225px;
+	margin-left: 10px;
+}
+
+/*immagine logo*/
+.logo_pegaso {
+	height: 55px;
+	width: 55px;
+}
+
+/*titolo accanto al logo*/
+.title {
+	float: right;
+	text-align: center;
+	font: bold 30px Monotype Corsiva;
+	color: #999999;
+	margin-top: 14%;
+}
+
+/*********************************** BOTTONE TOP ***********************************************/
+#Btn-Top {
+	width: 45px;
+	height: 45px;
+	display: none;
+	position: fixed;
+	bottom: 5%;
+	right: 7%;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: white;
+	background-image: url("../immagini/icone/up.1.png");
+	background-size: 105%;
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 90%;
+	cursor: pointer;
+	/* padding: 15px;*/
+	border-radius: 30px;
+}
+
+#Btn-Top:HOVER {
+	width: 45px;
+	height: 45px;
+	background-image: url("../immagini/icone/up.2.png");
+	background-size: 105%;
+	background-position: center;
+	background-color: #2266bb;
+	background-repeat: none;
+	box-shadow: 3px 4px 6px gray;
+}
+/*********************************** BOTTONE TOP-FINE ***********************************************/
+
+/*************************** FOOTER ******************************/
+footer {
+	padding: 1%;
+	background-color: threedhighlight;
+	z-index: 2;
+}
+
+.footer {
+	display: flex;
+}
+
+.footer .foot-logo {
+	margin-righ: 30px;
+	width: 100px;
+	height: 100px;
+}
+
+.footer .element {
+	margin: 0px 20px;
+}
+
+/*********************************** RESPONSE *************************************/
+@media only screen and (min-width: 769px) and (max-width: 940px) {
+	footer {
+		margin-top: 80%;
+	}
+}
+
+@media screen and (min-width : 769px) {
+	footer {
+		margin-top: 75%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+}
+
+@media screen and (max-width : 768px) {
+	footer {
+		margin-top: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width : 300px) {
+	footer {
+		margin-bottom: 0;
+	}
+}

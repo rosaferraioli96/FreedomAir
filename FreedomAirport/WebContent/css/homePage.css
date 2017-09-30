@@ -1,0 +1,267 @@
+@CHARSET "ISO-8859-1";
+
+
+
+/************************************** VOLO ***********************************************/
+
+body{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: backImage 30s linear 3s infinite;
+}
+
+
+
+/* tabs begin */
+.tab-volo {
+	height: 400px;
+	/*width: 350px;*/
+	position:relative;
+}
+
+.tab-volo ul.bott-volo {
+	position:absolute;
+	margin:0;
+	float:left;
+	padding-left:0;
+}
+
+.tab-volo ul.bott-volo li a {
+	color:#fff;
+	text-align:center;
+	display:block;
+	background:0 0 repeat-x #2266bb; /*background:0 0 repeat-x fuchsia; sfondo volo*/
+	line-height:50px;
+	text-decoration:none;
+	border-radius:6px 6px 0 0;
+	box-shadow: 2px 0 6px gray;
+	position:relative;
+	overflow:hidden
+}
+
+.tab-volo .content {
+	background: rgba(190, 214, 243, 0.8);/*colore sfondo tabella volo+trasparenza*/
+	/*opacity: 0.5;*/	
+	box-shadow:2px 2px 6px gray;
+	position:relative;
+	padding: 10px;
+	top: 12.5%;
+	padding-bottom: 20px;
+}
+
+
+/*  tabs end */
+
+
+
+
+/*form ricerca-volo begin*/
+
+#ricerca-volo .luogo{
+	margin-top:15px;
+}
+
+#ricerca-volo .row-content{
+	margin: 0 10px;
+	margin-bottom:20px;
+	text-align: center;
+}
+
+#ricerca-volo .data{
+	text-align: center;
+}
+
+
+#ricerca-volo .col-content {
+	padding: 4px 10px;
+	margin-bottom: 14px;
+}
+
+
+#ricerca-volo .col-content #name{
+	margin-bottom: 2px;
+	font-size: 21px;
+}
+
+
+#ricerca-volo .input {
+	background: rgba(255, 255, 255, 0.8); /*colore di sfondo*/
+	/*immagine aereo*/
+	background-image: url("../immagini/icone/airplane.png");
+	background-repeat:no-repeat;
+	background-size: 28px;
+	background-position: 3%;
+	/*immagine aereo*/
+	/*border:1px solid aqua; /*bordo*/
+	color:fuchsia; /*colore del testo*/
+	font: 20px Arial, Helvetica, sans-serif;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	margin: 0px 5px;
+	height: 30px;
+	width:80% !important;
+	border: 2px solid #2877d7; /*colore bordo*/
+	border-radius: 5px;
+}
+
+
+
+#ricerca-volo .input1 {
+	background: white;
+	border: 2px solid #2877d7; /*colore bordo*/
+	font: 18px Arial, Helvetica, sans-serif;
+	color:fuchsia;
+	padding:8px 7px;
+	margin:auto;
+	height: 20px;
+	width:70% !important;
+	border-radius: 5px;
+	
+}
+
+#ricerca-volo .input:FOCUS, #ricerca-volo .input1:FOCUS {
+	outline: none; /*toglie il bordo blu intorno*/
+	border: 2px solid #3abdef; /*bordo colore quando selezionato*/
+	box-shadow: inset 2px 2px 8px gray;
+	border-collapse: collapse;
+}
+	
+
+
+
+
+
+
+/*button_cerca begin*/
+.button_cerca{
+	float: right;
+	margin-right: 4%;
+	background: linear-gradient(#2266bb, #4d8edf, #2266bb);
+	border: thin;
+	/*cerca*/
+	font-size: 20px;
+	color: white;
+	padding: 10px 15px;
+	text-align: center;
+	/*fine cerca*/
+	text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 7px;
+	
+}
+
+.button_cerca:hover{
+ box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24),0 10px 40px 0 rgba(0,0,0,0.19);
+}
+/*end form ricerca-volo*/
+
+
+/*end form1*/
+
+
+/*.link1 {
+	top:10px;
+	background:url(../images/HomePage/marker_1.gif) 0 6px no-repeat;
+	display:inline-block
+}*/
+
+
+/************************************** VOLO ***********************************************/
+
+
+
+
+/*********************************************** RESPONSE ***********************************************/
+
+@media only screen and (min-width: 700px) and (max-width: 768px)  {
+	#ricerca-volo .data{ margin: 0 8%; }
+	#ricerca-volo .col-content {margin-left: 5%; margin-right: 2%;}
+}
+
+
+/**************************** MIN-WIDTH 769 **************************************/
+@media screen and (min-width : 769px){
+
+	@keyframes backImage {
+    0% {background-image: url(../immagini/sfondo/sfondo1.jpg);}
+    20% {background-image: url(../immagini/sfondo/sfondo2.jpg);}
+    40% {background-image: url(../immagini/sfondo/sfondo3.jpg);}
+    60% {background-image: url(../immagini/sfondo/sfondo4.jpg);}
+    80% {background-image: url(../immagini/sfondo/sfondo5.jpg);}
+    100% {background-image: url(../immagini/sfondo/sfondo6.jpg);}
+	}	
+		
+	
+	.tab-volo {
+	float:right;
+	/*left: -80px;*/ 
+	margin-right: 12%;
+	margin-top: 8%;
+	}
+	
+	.tab-volo ul.bott-volo{ width:100px;}
+	
+	/*scritta volo*/
+	.tab-volo ul.bott-volo li a { font-size: 22px; }
+	
+	.tab-volo .content {
+		border-radius:0 6px 6px 6px;
+		width: 300px;
+		height: 385px;
+		
+	}
+	
+	#ricerca-volo .col-content { margin: 0px 20%; }
+	
+	#ricerca-volo .input { padding-left: 16%;}
+	
+	.button_cerca{ margin-top: 8%; }
+	
+	footer{
+	  margin-top: 75%; 
+	  margin-left: 10%;
+	  margin-right: 10%;
+	}
+	
+
+	
+}
+/**************************** MIN-WIDTH 769-FINE **************************************/
+
+/**************************** MAX-WIDTH 768 **************************************/
+@media screen and (max-width : 768px) {
+	
+	.tab-volo {
+	float:none;
+	left: 0;
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-top: 15%;
+	}
+	
+	
+	.tab-volo ul.bott-volo { 
+		width: 100% ;
+		height: 50px;
+	}
+	
+	/*scritta volo*/
+	.tab-volo ul.bott-volo li a { font-size: 24px; }
+	
+	.tab-volo .content { border-radius:0 0 6px 6px; height: 300px;}
+	
+	#ricerca-volo .row-content{ text-align: center;}
+	
+	 #ricerca-volo .data{display: flex; margin: 0 5%;} 
+	 
+	 #ricerca-volo .input {text-align: center; padding-left: 10%;}
+	  
+	 #ricerca-volo .input1 {text-align: center;}
+	 
+	 .button_cerca{ margin-top: 3%; }
+	 
+}
+
+/**************************** MAX-WIDTH 768-FINE **************************************/
