@@ -26,10 +26,21 @@
 	
 			<ul>
 				<li><a href="cart.html"><img src="#" alt="carrello" />
-						Cart</a></li>
+						Cart</a>
+				</li>
 				<li>
+				 <%
+	 				String name = (String) session.getAttribute("name");
+					if (name != null) {
+				 %>
+				 	Welcome: <%=name%>
+					<form action="Logout" method="post">
+						<input type="submit" value="logout" />
+					</form> 
+				<% } else { %>
 					<button	onclick="document.getElementById('id01').style.display='block'">
 						Login</button>
+				<% } %>
 				</li>
 			</ul>
 
@@ -165,24 +176,13 @@ function topFunction() {
 </script>
 
 	<!-- appare la schermata per il login -->
-
- <%
-	 	String name = (String) session.getAttribute("name");
-		if (name != null){
-			out.print("<h1> Welcome: "+ name +" </h1>");  %>
-
-	<form action="Logout" method="post">
-		<input type="submit" value="logout">
-	</form> 
-	<% } else {
-   	 %>
+	
 	<div id="id01" class="modal">
 
 		<form class="modal-content animate" action="Login" method="post">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id01').style.display='none'"
-					class="close" title="Close Modal">&times;</span> <img
-					src="img_avatar2.png" alt="Avatar" class="avatar">
+					class="close" title="Close Modal">&times;</span> 
 			</div>
 
 			<div class="container">
@@ -204,8 +204,6 @@ function topFunction() {
 			</div>
 		</form>
 	</div>
-<% }
-	 %>
  <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
  <script type="text/javascript">
 // Get the modal
@@ -232,7 +230,12 @@ $(function(){
 	        	   pass : password
 	           },
 	           success: function(result) {
-	        	   alert(result);
+	        	   if (parseInt(result)) {
+	        		   alert("Operazione eseguita con successo!!!");
+	        		   location.reload();
+	        	   } else {
+	        		   alert("Si è verificato un errore!!");
+	        	   }	        	   
 	           },
 	           error: function() {
 	               alert("Si è verificato un errore!!");

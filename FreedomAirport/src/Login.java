@@ -36,7 +36,6 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.setContentType("text/html");
 		PrintWriter out= response.getWriter();
 		String uname=request.getParameter("uname");
@@ -47,14 +46,13 @@ public class Login extends HttpServlet {
 	        HttpSession session=request.getSession(true);  
 	        session.setAttribute("name",uname); 
 	        session.setMaxInactiveInterval(60*2);
-	        RequestDispatcher rd= request.getRequestDispatcher("HomePage.jsp");
-	       rd.forward(request, response);
+	        out.println(1);
 		} catch (LoginFailedException e) {
-			out.println("Login Fallito!!!!");
+			out.println(0);
 		} catch (SQLException e) {
-			out.println("Login Fallito!!!!");
+			out.println(0);
 		} catch (ConnessioneException e) {
-			out.println("Login Fallito!!!!");
+			out.println(0);
 		}
 	}
 }
