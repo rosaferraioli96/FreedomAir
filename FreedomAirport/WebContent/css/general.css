@@ -21,28 +21,6 @@ ul li {
 	float: right;
 }
 
-/*div che contiene il logo*/
-.logo {
-	position: relative;
-	width: 225px;
-	margin-left: 10px;
-}
-
-/*immagine logo*/
-.logo_pegaso {
-	height: 55px;
-	width: 55px;
-}
-
-/*titolo accanto al logo*/
-.title {
-	float: right;
-	text-align: center;
-	font: bold 30px Monotype Corsiva;
-	color: #999999;
-	margin-top: 14%;
-}
-
 /*********************************** BOTTONE TOP ***********************************************/
 #Btn-Top {
 	width: 45px;

@@ -7,9 +7,10 @@
 		<p class="title">FreedomAir</p>
 	</div>
 	<div class="shop-menu">
+				
 		<ul>
-			<li><a href="cart.html"><img src="#" alt="carrello" /> Cart</a>
-			</li>
+				<li><a href="cart.html"><img class="carrello" src="immagini/icone/cart.png" alt="carrello" />
+						Cart</a></li>
 			<li>
 				<%
 					String name = (String) session.getAttribute("name");
@@ -20,9 +21,8 @@
 				</form> <%
  	} else {
  %>
-				<button
-					onclick="document.getElementById('id01').style.display='block'">
-					Login</button> <%
+				<div class="login"onclick="document.getElementById('id01').style.display='block'">
+			<img class="im_login" src="immagini/icone/user.png" alt="utente" /> <a href="#"> Login </a></div> <%
  	}
  %>
 			</li>
@@ -35,7 +35,7 @@
 		type="checkbox" id="drop" />
 
 	<ul class="menu">
-		<li><a href="#">Home</a></li>
+		<li><a href="index.jsp">Home</a></li>
 
 		<li class="dropdown">
 			<!-- First tier drop down --> <label for="drop-1" class="toggle">In
@@ -44,8 +44,8 @@
 
 			<ul class="dropdown-content">
 				<li class="inf"><a href="#">Voli</a></li>
-				<li class="inf"><a href="CheckIN.html">Check-in</a></li>
-				<li class="inf"><a href="Bagaglio.html">Bagagli</a></li>
+				<li class="inf"><a href="checkIn.jsp">Check-in</a></li>
+				<li class="inf"><a href="bagaglio.jsp">Bagagli</a></li>
 			</ul>
 		</li>
 
@@ -56,14 +56,14 @@
 
 			<ul class="dropdown-content">
 				<!-- Dire a maddalena che ho cambiato -->
-				<li class="inf"><a href="AssistenzaClienti.html">Assistenza
+				<li class="inf"><a href="assistenzaClienti.jsp">Assistenza
 						clienti</a></li>
 				<li class="inf"><a href="#">Servizi extra</a></li>
 			</ul>
 		</li>
 
-		<li><a href="FAQ.html">FAQ</a></li>
-		<li><a href="Contatti.html">Contattaci</a></li>
+		<li><a href="faq.jsp">FAQ</a></li>
+		<li><a href="contatti.jsp">Contattaci</a></li>
 	</ul>
 </nav>
 
@@ -85,7 +85,7 @@
 			<!--  <button type="submit">Login</button> -->
 			<input type="checkbox" checked="checked"> Remember me
 		</div>
-		<a href="Registrazione.html"> Non sei iscritto? Registrati!</a>
+		<a href="registrazione.jsp"> Non sei iscritto? Registrati!</a>
 		<div class="container-log">
 			<button type="button"
 				onclick="document.getElementById('id01').style.display='none'"

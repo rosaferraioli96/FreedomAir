@@ -1,76 +1,22 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-
+<link rel="stylesheet" href="css/general.css" type="text/css"
+	media="all">
 <link rel="stylesheet" href="css/nav.css" type="text/css" media="all">
+
 <link rel="stylesheet" href="css/login.css" type="text/css" media="all">
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+
+
+<title>FAQ</title>
 </head>
 <body>
-
-
-</head>
-
-<body>
-
-	<header>
-	<div class="logo">
-			<img src="immagini/logo_pegaso.png" alt="Logo" class="logo_pegaso">
-			<p class="title">FreedomAir</p>
-		</div>
-		<div class="shop-menu">
-		<ul>
-				<li><a href="cart.html"><img src="#" alt="carrello" />
-						Cart</a></li>
-				<li><img src="Login" alt="utente" />
-					<button
-						onclick="document.getElementById('id01').style.display='block'">
-						Login</button></li>
-			</ul>
-
-
-
-		</div>
-			</header>
-			<nav>
-		<label for="drop" class="toggle-menu"><span>Menu</span></label> <input
-			type="checkbox" id="drop" />
-
-		<ul class="menu">
-			<li><a href="HomePage.jsp">Home</a></li>
-
-			<li class="dropdown">
-				<!-- First tier drop down --> <label for="drop-1" class="toggle">In
-					partenza</label> <a href="javascript:void(0)" class="dropbtn">In
-					partenza</a> <input type="checkbox" id="drop-1" />
-
-				<ul class="dropdown-content">
-					<li class="inf"><a href="#">Voli</a></li>
-					<li class="inf"><a href="CheckIN.html">Check-in</a></li>
-					<li class="inf"><a href="Bagaglio.html">Bagagli</a></li>
-				</ul>
-
-			</li>
-
-			<li class="dropdown">
-				<!-- First tier drop down --> <label for="drop-2" class="toggle">Info
-					e servizi</label> <a href="javascript:void(0)" class="dropbtn">Info e
-					servizi</a> <input type="checkbox" id="drop-2" />
-
-				<ul class="dropdown-content">
-					<li class="inf"><a href="AssistenzaClienti.html">Assistenza clienti</a></li>
-					<li class="inf"><a href="#">Servizi extra</a></li>
-				</ul>
-
-			</li>
-
-			<li><a href="FAQ.html">FAQ</a></li>
-			<li><a href="Contatti.html">Contattaci</a></li>
-		</ul>
-	</nav>
-
+	<%@ include file="header.jsp"%>
+		
 <p>
     FAQ
 <br>
@@ -100,5 +46,6 @@ Per informazioni su voli e servizi aeroportuali puoi rivolgerti Customer Service
 <br>
  
 </p>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

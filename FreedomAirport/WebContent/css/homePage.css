@@ -107,20 +107,52 @@ body{
 
 
 
-#ricerca-volo .input1 {
+#ricerca-volo .input1, input[type="date"] {
+	 outline: none; /*toglie il bordo blu intorno*/
 	background: white;
 	border: 2px solid #2877d7; /*colore bordo*/
 	font: 18px Arial, Helvetica, sans-serif;
 	color:fuchsia;
-	padding:8px 7px;
-	margin:auto;
+	padding:8px 4px;
 	height: 20px;
-	width:70% !important;
+	width:82% !important;
 	border-radius: 5px;
-	
+
+	/* appearance: none;
+    -webkit-appearance: none;
+    display: inline-block !important;
+    visibility: visible !important;*/
 }
 
-#ricerca-volo .input:FOCUS, #ricerca-volo .input1:FOCUS {
+
+
+/* rimuove le doppie frecce */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+	 color: rgba(0, 0, 0, 0);
+    opacity: 1;
+}
+
+
+/* Calendario immagine */
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    float: right;
+    background: url("../immagini/icone/calendar2.png") no-repeat;
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+}
+
+
+#ricerca-volo .input:FOCUS, input[type=date]:FOCUS {
 	outline: none; /*toglie il bordo blu intorno*/
 	border: 2px solid #3abdef; /*bordo colore quando selezionato*/
 	box-shadow: inset 2px 2px 8px gray;
@@ -184,14 +216,14 @@ body{
 /**************************** MIN-WIDTH 769 **************************************/
 @media screen and (min-width : 769px){
 
-	@keyframes backImage {
+	/* @keyframes backImage {
     0% {background-image: url(../immagini/sfondo/sfondo1.jpg);}
     20% {background-image: url(../immagini/sfondo/sfondo2.jpg);}
     40% {background-image: url(../immagini/sfondo/sfondo3.jpg);}
     60% {background-image: url(../immagini/sfondo/sfondo4.jpg);}
     80% {background-image: url(../immagini/sfondo/sfondo5.jpg);}
     100% {background-image: url(../immagini/sfondo/sfondo6.jpg);}
-	}	
+	}	*/
 		
 	
 	.tab-volo {
@@ -225,7 +257,6 @@ body{
 	  margin-right: 10%;
 	}
 	
-
 	
 }
 /**************************** MIN-WIDTH 769-FINE **************************************/

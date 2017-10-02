@@ -68,16 +68,17 @@ public class Registrazione extends HttpServlet {
 			if(queryBuilder.getAllUsername(uname) == false){
 				Client1 cliente= new Client1(uname, pass,nome,cognome,dataNascita,paese,indirizzo,codiceFiscale,cartaIdentita,passaporto,email,numero);
 				queryBuilder.insertClient(cliente);
-				   RequestDispatcher rd= request.getRequestDispatcher("HomePage.jsp");
+				   RequestDispatcher rd= request.getRequestDispatcher("index.jsp");
 			       rd.forward(request, response);
+			       out.println(1);
 			}
 		} catch (RicercaVoloFailedException e) {
-			out.println("Username gia utilizzato!!!!");
+			out.println(0);
 		} catch (ConnessioneException e) {
-			// TODO Auto-generated catch block
+			out.println(0);
 			e.printStackTrace();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			out.println(0);
 			e.printStackTrace();
 		}
 

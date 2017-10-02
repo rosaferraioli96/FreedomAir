@@ -1,0 +1,61 @@
+@CHARSET "ISO-8859-1";
+
+html {
+	background: #f06;
+	background: linear-gradient(90deg, #cceecc,#eeeeee);
+	min-height: 100%;
+}
+input[type=date] {
+	 outline: none; /*toglie il bordo blu intorno*/
+	background: white;
+	border: 2px solid #2877d7; /*colore bordo*/
+	font: 18px Arial, Helvetica, sans-serif;
+	color:fuchsia;
+	padding:8px 7px;
+	margin:auto;
+	height: 20px;
+	width:80% !important;
+	border-radius: 5px;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+	color: #999;
+	height: 8px;
+	position: relative;
+	width: 8px;
+	z-index: 0;
+
+}
+
+input[type=date]::-webkit-calendar-picker-indicator:before {
+	background: red;
+	background: linear-gradient(90deg, #eee, #fff);
+	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	border-radius: 24px;
+	content: '';
+	display: block;
+	height: 22px;
+	left: -2px;
+	position: absolute;
+	top: -5px;
+	width: 22px;
+	z-index: -1;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator:hover {
+	color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url("../immagini/icone/calendar1.png") no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+
+input[type=date]:focus {
+	border-color: #3399ff;
+	outline: none; /*toglie il bordo blu intorno*/
+	border: 2px solid #3abdef; /*bordo colore quando selezionato*/
+	box-shadow: inset 2px 2px 8px gray;
+	border-collapse: collapse;
+}
