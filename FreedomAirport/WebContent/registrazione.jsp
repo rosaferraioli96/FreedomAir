@@ -47,18 +47,22 @@
 			<input type="text" class="input_log" placeholder="Enter Codice Passaporto" name="passaporto" id="passaporto">
 			 <label><b>Email</b></label> 
 			 <input type="text" class="input_log" placeholder="Enter Email" name="email" id="email">
-			  <label><b>Numero Telefono</b></label> <input type="text" class="input_log" placeholder="Enter Numero Telefono" name="numerotelefono" id="numerotelefono">
+			  <label><b>Numero Telefono</b></label> <input type="number" class="input_log" placeholder="Enter Numero Telefono" name="numerotelefono" id="numerotelefono">
 			   <input type="submit" value="invio" id="submitRegistrazione">
 		</form>
-<script src="http://code.jquery.com/jquery-1.6.4.min.js"
-	type="text/javascript"> 
-$(function() {
+
+
+
+<!--	<script src="http://code.jquery.com/jquery-1.6.4.min.js"
+	type="text/javascript"  > </script>
+<script type="text/javascript">
+ $(function() {
 		$('#submitRegistrazione').click(function() {
 
 			var username = $('#username').val();
 			var password = $('#password').val();
 			var nome= $('#nome').val();
-			var cognome= $('#cognome').val();ù
+			var cognome= $('#cognome').val();
 			var dataDiNascita= $('#dataDiNascita').val();
 			var paese= $('#paese').val();
 			var indirizzo= $('#indirizzo').val();
@@ -67,7 +71,7 @@ $(function() {
 			var passaporto= $('#passaporto').val();
 			var numerotelefono= $('#numerotelefono').val();
 			$.ajax({
-				url : '/FreedomAirport/Login',
+				url : '/FreedomAirport/Registrazione',
 				type : 'POST',
 				data : {
 					uname : username,
@@ -81,7 +85,7 @@ $(function() {
 					cartaidentita : cartaidentita,
 					passaporto: passaporto,
 					email: email,
-					numero: numero
+					numero: numerotelefono
 					
 				},
 				success : function(result) {
@@ -100,7 +104,8 @@ $(function() {
 		});
 
 	});
-</script>
+
+</script> -->
 	</section>
 
 	<%@ include file="footer.jsp"%>

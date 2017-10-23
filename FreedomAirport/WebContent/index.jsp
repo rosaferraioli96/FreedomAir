@@ -81,30 +81,31 @@
 
 	</section>
 
-	<!-- bottone per tornare all'inizio della pagina -->
-	<button onclick="topFunction()" id="Btn-Top" class="butt-log"
-		title="Vai sopra"></button>
+
 
 	<%@ include file="footer.jsp"%>
 
 </body>
 
 <script type="text/javascript">
-// When the user scrolls down 40px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+	// When the user scrolls down 40px from the top of the document, show the button
+	window.onscroll = function() {
+		scrollFunction()
+	};
 
-function scrollFunction() {
-    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-        document.getElementById("Btn-Top").style.display = "block";
-    } else {
-        document.getElementById("Btn-Top").style.display = "none";
-    }
-}
+	function scrollFunction() {
+		if (document.body.scrollTop > 40
+				|| document.documentElement.scrollTop > 40) {
+			document.getElementById("Btn-Top").style.display = "block";
+		} else {
+			document.getElementById("Btn-Top").style.display = "none";
+		}
+	}
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+		document.body.scrollTop = 0;
+		document.documentElement.scrollTop = 0;
+	}
 </script>
 </html>

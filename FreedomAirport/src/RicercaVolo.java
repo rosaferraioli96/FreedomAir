@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +17,9 @@ import connessioneDB.ConnessioneException;
 import connessioneDB.QueryBuilder;
 import connessioneDB.exc.LoginFailedException;
 import connessioneDB.exc.RicercaVoloFailedException;
+import entita.Volo;
+import entita.Volo1;
+import entita.Volo2;
 
 /**
  * Servlet implementation class RicervaVolo
@@ -51,11 +55,24 @@ public class RicercaVolo extends HttpServlet {
 		String LuogoA= request.getParameter("LuogoA");
 		String DataP= request.getParameter("DataP");
 		String DataR= request.getParameter("DataR");
-
+	
+		HttpSession session=request.getSession(true);   
+	
 		try {
 			QueryBuilder queryBuilder = new QueryBuilder();
-			out.println(queryBuilder.getRicercaVoloAndata(LuogoP, LuogoA, DataP));
-			out.println("\n" + queryBuilder.getRicercaVoloAndata(LuogoA, LuogoP, DataR));
+			ArrayList<Volo> variabile = queryBuilder.getRicercaVoloAndata(LuogoP, LuogoA, DataP);
+			ArrayList<Volo> variabile2 =  queryBuilder.getRicercaVoloAndata(LuogoA, LuogoP, DataR);
+		//setto il codice id perchè mi serve per il carello
+			String variabile3= queryBuilder.getRicercaVoloAndataById(LuogoP, LuogoA, DataP);
+			//ArrayList<Volo2> variabile4= queryBuilder.getOra_PartenzaById(LuogoP, LuogoA, DataP);
+			//session.setAttribute("ora_partenza", variabile4);
+			session.setAttribute("codice_id", variabile3);
+			session.setAttribute("voloAndata",variabile);
+			session.setAttribute("voloRitorno", variabile2);
+			
+			response.sendRedirect("visualizzaVolo.jsp");
+			session.setMaxInactiveInterval(60*5);
+
 		} catch (RicercaVoloFailedException e) {
 			out.println("Ricerca Fallita!!!!");
 		} catch (SQLException e) {

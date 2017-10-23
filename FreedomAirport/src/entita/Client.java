@@ -4,10 +4,9 @@ package entita;
 
 public class Client {
 
-	public Client(String username, String password, String nome, String cognome,  String date, String paese,
-			String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono) {
-		this.username= username;
-		this.password= password;
+
+	public Client(String nome, String cognome,  String date, String paese,
+			String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono){
 		this.nome= nome;
 		this.cognome= cognome;
 		this.data_nascita= date;
@@ -19,7 +18,6 @@ public class Client {
 		this.email= email;
 		this.numero_telefono= numero_telefono;
 	}
-
 public Client(String nome){
 	this.nome= nome;
 }
@@ -99,15 +97,20 @@ public Client(String nome){
 	public void setMail(String email){
 		this.email=  email;
 
-	}public String getTel(){
+	}
+	public String getTel(){
 		return numero_telefono;
 	}
 	public void setTel(String numero_telefono){
 		this.numero_telefono=  numero_telefono;
 	}
 
-
-
+	public int getTipo(){
+		return tipo;
+	}
+	public void setTipo(int tipo){
+		this.tipo=  tipo;
+	}
 
 
 
@@ -120,11 +123,17 @@ public Client(String nome){
 
 	@Override
 	public String toString() {
-		return "Client [nome=" + nome + "]";
+		return "Nome=" + nome 
+				+ " , cognome=" + cognome
+				+ ",  data_nascita=" + data_nascita 
+				+ ",  paese=" + paese
+				+ ",  indirizzo=" + indirizzo 
+				+ ",  codice_fiscale=" + codice_fiscale
+				+ ",  carta_identita=" + carta_identita
+				+ ",  passaporto=" + passaporto
+				+ ", email=" + email 
+				+ ", numero_telefono="+ numero_telefono ;
 	}
-
-
-
 
 
 
@@ -147,4 +156,5 @@ public Client(String nome){
 	private String passaporto;
 	private String email;
 	private String numero_telefono; 
+	private int tipo;
 }

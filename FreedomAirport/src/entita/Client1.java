@@ -4,10 +4,10 @@ public class Client1 {
 	public Client1(String username){
 		this.username= username;
 	}
-	
+
 	public Client1(String username, String password, String nome, String cognome,  String date, String paese,
-			String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono) {
-		this.username= username;
+			String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono){
+		this.username=username;
 		this.password= password;
 		this.nome= nome;
 		this.cognome= cognome;
@@ -20,7 +20,6 @@ public class Client1 {
 		this.email= email;
 		this.numero_telefono= numero_telefono;
 	}
-
 	public void setUsername(String username){
 		this.username=  username;
 	}

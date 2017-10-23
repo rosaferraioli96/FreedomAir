@@ -216,14 +216,14 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 /**************************** MIN-WIDTH 769 **************************************/
 @media screen and (min-width : 769px){
 
-	/* @keyframes backImage {
+	 @keyframes backImage {
     0% {background-image: url(../immagini/sfondo/sfondo1.jpg);}
     20% {background-image: url(../immagini/sfondo/sfondo2.jpg);}
     40% {background-image: url(../immagini/sfondo/sfondo3.jpg);}
     60% {background-image: url(../immagini/sfondo/sfondo4.jpg);}
     80% {background-image: url(../immagini/sfondo/sfondo5.jpg);}
     100% {background-image: url(../immagini/sfondo/sfondo6.jpg);}
-	}	*/
+	}	
 		
 	
 	.tab-volo {

@@ -9,20 +9,32 @@
 	<div class="shop-menu">
 				
 		<ul>
-				<li><a href="cart.html"><img class="carrello" src="immagini/icone/cart.png" alt="carrello" />
-						Cart</a></li>
+				
 			<li>
 				<%
 					String name = (String) session.getAttribute("name");
+					Integer amministratore = (Integer) session.getAttribute("amministratore");
 					if (name != null) {
-				%> Welcome: <%=name%>
+						
+				%> Welcome: <%=name%> 
+			    
 				<form action="Logout" method="post">
-					<input type="submit" value="logout" />
+				<input type="submit" value="logout" />
+			<a href="carrello.jsp"><img class="carrello" src="immagini/icone/cart.png" alt="carrello" />
+						Cart</a>
+				<% if(amministratore == 0){
+					%>
+				<img class="im_login" src="immagini/icone/user.png" alt="utente" /> <a href="cliente.jsp">InfoUtente</a> 
+				
+			<%}else{ %>		
+				<img class="im_login" src="immagini/icone/user.png" alt="utente" /> <a href="admin.jsp">Amministratore</a> 
+				
+			<%} %>
 				</form> <%
  	} else {
  %>
 				<div class="login"onclick="document.getElementById('id01').style.display='block'">
-			<img class="im_login" src="immagini/icone/user.png" alt="utente" /> <a href="#"> Login </a></div> <%
+			<img class="im_login" src="immagini/icone/user.png" alt="utente" /> <a href="#">Login</a> </div> <%
  	}
  %>
 			</li>
@@ -55,7 +67,7 @@
 				servizi</a> <input type="checkbox" id="drop-2" />
 
 			<ul class="dropdown-content">
-				<!-- Dire a maddalena che ho cambiato -->
+
 				<li class="inf"><a href="assistenzaClienti.jsp">Assistenza
 						clienti</a></li>
 				<li class="inf"><a href="#">Servizi extra</a></li>
@@ -80,20 +92,19 @@
 				required placeholder="Enter Username" name="uname" id="username">
 			<label><b>Password</b></label> <input type="password"
 				placeholder="Enter Password" name="pass" required id="password">
+		
+			<input type="checkbox"  name="amministratore" id="amministratore" value="true"> Sei amministratore?
 			<input type="submit" value="login" id="submitLogin">
-
-			<!--  <button type="submit">Login</button> -->
-			<input type="checkbox" checked="checked"> Remember me
+		
 		</div>
-		<a href="registrazione.jsp"> Non sei iscritto? Registrati!</a>
-		<div class="container-log">
-			<button type="button"
-				onclick="document.getElementById('id01').style.display='none'"
-				class="butt-log cancelbtn">Cancel</button>
-			<span class="psw">Forgot <a href="#">password?</a></span>
-		</div>
+		   <a href="registrazione.jsp"> Non sei iscritto? Registrati!</a><p align="right" />  <a href="PasswordDimenticata.jsp">Password Dimenticata?</a>
+	
 	</form>
 </div>
+
+	<!-- bottone per tornare all'inizio della pagina -->
+	<button onclick="topFunction()" id="Btn-Top" class="butt-log"
+		title="Vai sopra"></button>
 
 <script src="http://code.jquery.com/jquery-1.6.4.min.js"
 	type="text/javascript"> </script>
@@ -114,13 +125,19 @@
 
 			var username = $('#username').val();
 			var password = $('#password').val();
-
+		
+			var amministratore = "Admin";
+			if ($("#amministratore").is(":not(:checked)")){ 
+				amministratore= "Client";
+			} 
+	
 			$.ajax({
 				url : '/FreedomAirport/Login',
 				type : 'POST',
 				data : {
 					uname : username,
-					pass : password
+					pass : password,
+					amministratore: amministratore
 				},
 				success : function(result) {
 					if (parseInt(result)) {

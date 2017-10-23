@@ -5,18 +5,12 @@ public class Biglietto {
 
 	
 	
-	public Biglietto( Integer codice_id , String intestatario, String compagnia_aerea , String classe ,int numero_posto, float costo, String rif_cliente, int rif_carta,int rif_volo){
-		
+	public Biglietto(String intestatario, String compagnia_aerea , String classe ,int numero_posto, float costo){
 		this.intestatario= intestatario;
 		this.compagnia_aerea= compagnia_aerea; 
 		this.classe=classe;
 	    this.numero_posto=numero_posto;
 		this.costo=costo;
-	    this.codice_id = codice_id;
-	    this.rif_cliente = rif_cliente;
-	    this.rif_carta = rif_carta;
-	    this.rif_volo = rif_volo;
-
 
 	}
 	
@@ -85,9 +79,8 @@ public class Biglietto {
 
 	@Override
 	public String toString() {
-		return "Biglietto [codice_id=" + codice_id + ", intestatario=" + intestatario + ", compagnia_aerea="
-				+ compagnia_aerea + ", classe=" + classe + ", numero_posto=" + numero_posto + ", costo=" + costo
-				+ ", rif_cliente=" + rif_cliente + ", rif_carta=" + rif_carta + ", rif_volo=" + rif_volo + "]";
+		return " intestatario=" + intestatario + ", compagnia_aerea="
+				+ compagnia_aerea + ", classe=" + classe + ", numero_posto=" + numero_posto + ", costo=" + costo ;
 	}
 
 

@@ -41,12 +41,12 @@ public class Logout extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");  
         PrintWriter out=response.getWriter();  
-             
+             if(request.getSession() != null){
         HttpSession session=request.getSession(false);  
 		session.setAttribute("name", null);
 		session.invalidate();
 		response.sendRedirect("index.jsp");
-     
+             }
 	    out.close();  
 	}
 

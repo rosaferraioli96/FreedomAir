@@ -10,8 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mysql.fabric.xmlrpc.Client;
+
 
 import connessioneDB.ConnessioneException;
 import connessioneDB.QueryBuilder;
@@ -59,7 +61,7 @@ public class Registrazione extends HttpServlet {
 		String cartaIdentita= request.getParameter("cartaidentita");
 		String passaporto= request.getParameter("passaporto");
 		String email= request.getParameter("email");
-		String numero= request.getParameter("numero");
+		String numero= request.getParameter("numerotelefono");
        //con questo controllo vedo se il valore restituito dalla query è vero, se lo è allora
 		//l'username è gia utilizzato se non lo è allora sara false e farà l'inserimento
 		try {
@@ -67,22 +69,31 @@ public class Registrazione extends HttpServlet {
 		  //out.println(queryBuilder.getAllUsername(uname));
 			if(queryBuilder.getAllUsername(uname) == false){
 				Client1 cliente= new Client1(uname, pass,nome,cognome,dataNascita,paese,indirizzo,codiceFiscale,cartaIdentita,passaporto,email,numero);
-				queryBuilder.insertClient(cliente);
-				   RequestDispatcher rd= request.getRequestDispatcher("index.jsp");
-			       rd.forward(request, response);
-			       out.println(1);
+				queryBuilder.insertClient(cliente);		
+				 request.getRequestDispatcher("index.jsp").forward(request, response);
+				Response.OK.getValue();
+	
 			}
 		} catch (RicercaVoloFailedException e) {
-			out.println(0);
+			out.println(Response.KO.getValue());
 		} catch (ConnessioneException e) {
-			out.println(0);
-			e.printStackTrace();
+			out.println(Response.KO.getValue());
 		} catch (SQLException e) {
-			out.println(0);
-			e.printStackTrace();
+			out.println(Response.KO.getValue());
 		}
-
-
 	}
 
+	enum Response {
+		OK(1),KO(0);
+		
+		private int value;
+
+		private Response(int value) {
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return value;
+		}
+	}
 }

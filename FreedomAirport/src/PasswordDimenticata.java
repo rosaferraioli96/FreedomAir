@@ -51,7 +51,7 @@ public class PasswordDimenticata extends HttpServlet {
 		
 		try {
 			QueryBuilder nuova = new QueryBuilder();
-			nuova.getPassword(email, pass);
+			nuova.setPassword(email, pass);
 			out.println(" \b Password modificata");
 			//response.sendRedirect("Login.jsp");
 

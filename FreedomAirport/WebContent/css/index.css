@@ -42,20 +42,3 @@ input[type=date]::-webkit-calendar-picker-indicator:before {
 	z-index: -1;
 }
 
-input[type=date]::-webkit-calendar-picker-indicator:hover {
-	color: rgba(0, 0, 0, 0);
-    opacity: 1;
-    display: block;
-    background: url("../immagini/icone/calendar1.png") no-repeat;
-    width: 20px;
-    height: 20px;
-    border-width: thin;
-}
-
-input[type=date]:focus {
-	border-color: #3399ff;
-	outline: none; /*toglie il bordo blu intorno*/
-	border: 2px solid #3abdef; /*bordo colore quando selezionato*/
-	box-shadow: inset 2px 2px 8px gray;
-	border-collapse: collapse;
-}

@@ -3,10 +3,20 @@ package entita;
 public class Volo {
 
 
+	
+	public Volo(String codice_id, String luogo_partenza, String data_partenza, String ora_partenza,  String luogo_arrivo, String  data_arrivo, String ora_arrivo){
 
+		this.codice_id= codice_id;
+		this.luogo_partenza= luogo_partenza; 
+		this.data_partenza=data_partenza;
+		this.ora_partenza=ora_partenza;
+		this.luogo_arrivo= luogo_arrivo; 
+		this.data_arrivo=data_arrivo;
+		this.ora_arrivo=ora_arrivo;
+
+	}
 	public Volo(String luogo_partenza, String data_partenza, String ora_partenza,  String luogo_arrivo, String  data_arrivo, String ora_arrivo){
 
-		//this.codice_id= codice_id;
 		this.luogo_partenza= luogo_partenza; 
 		this.data_partenza=data_partenza;
 		this.ora_partenza=ora_partenza;
@@ -17,11 +27,24 @@ public class Volo {
 	}
 
 
+	public Volo(String luogo_partenza, String luogo_arrivo, String data_partenza, String data_arrivo ){
+		this.luogo_partenza= luogo_partenza; 
+		this.data_partenza=data_partenza;
+		this.luogo_arrivo= luogo_arrivo; 
+		this.data_arrivo=data_arrivo;
+	}
+	
+	public Volo(String codice_id){
 
-	public int getCodice_id() {
+		this.codice_id= codice_id;
+	}
+
+
+	
+	public String getCodice_id() {
 		return codice_id;
 	}
-	public void setCodice_id(int codice_id) {
+	public void setCodice_id(String codice_id) {
 		this.codice_id = codice_id;
 	}
 
@@ -38,6 +61,7 @@ public class Volo {
 	public void setData_partenza(String data_partenza) {
 		this.data_partenza=  data_partenza;
 	}
+
 	public String getOra_partenza() {
 		return ora_partenza;
 	}
@@ -59,6 +83,7 @@ public class Volo {
 	public void setData_arrivo (String data_arrivo ) {
 		this.data_arrivo =  data_arrivo ;
 	}
+
 	public String getOra_arrivo() {
 		return ora_arrivo;
 	}
@@ -74,18 +99,16 @@ public class Volo {
 
 	@Override
 	public String toString() {
-		return "Volo [luogo_partenza=" + luogo_partenza + ", data_partenza=" + data_partenza + ", ora_partenza="
-				+ ora_partenza + ", luogo_arrivo=" + luogo_arrivo + ", data_arrivo=" + data_arrivo + ", ora_arrivo="
-				+ ora_arrivo + "]";
+		return "Codice id= "+ codice_id + ",  Luogo Partenza= " + luogo_partenza + ", Data Partenza = " + data_partenza + ", Ora Partenza= "
+				+ ora_partenza + ", Luogo Arrivo= " + luogo_arrivo + ", Data Arrivo= " + data_arrivo + ", Ora Arrivo= "
+				+ ora_arrivo + "\n"  ;
 	}
 
 
 
 
 
-
-
-	private int codice_id;
+	private String codice_id;
 	private String  luogo_partenza; 
 	private String data_partenza;
 	private String ora_partenza;
@@ -94,3 +117,4 @@ public class Volo {
 	private String  ora_arrivo;
 
 }
+

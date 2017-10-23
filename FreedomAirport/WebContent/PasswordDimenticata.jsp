@@ -4,10 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link rel="stylesheet" href="css/general.css" type="text/css"
+	media="all">
+<link rel="stylesheet" href="css/nav.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/login.css" type="text/css" media="all">
+<title> Password Dimenticata </title>
 </head>
 <body>
-Inserisci :
+<%@ include file="header.jsp"%>
+<br>
+<br>
+   Inserisci :
+<br>
 <br>
 	<form action="PasswordDimenticata" method="post">
 		Email : <input type="text" name="email"> 
@@ -15,7 +23,8 @@ Inserisci :
 		<input type="submit" value="invio">
 	</form>
 
-
+	
+	 <%@ include file="footer.jsp"%>
 
 </body>
 </html>
