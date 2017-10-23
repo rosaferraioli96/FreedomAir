@@ -1,29 +1,31 @@
 
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import connessioneDB.ConnessioneException;
 import connessioneDB.QueryBuilder;
+import entita.Volo;
 
 /**
- * Servlet implementation class Servlet
+ * Servlet implementation class viewVolo
  */
-@WebServlet("/Servlet")
-public class Servlet extends HttpServlet {
+@WebServlet("/viewVolo")
+public class viewVolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Servlet() {
+    public viewVolo() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,22 +43,22 @@ public class Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		response.setContentType("text/html");
-		PrintWriter out= response.getWriter();
-		QueryBuilder queryBuilder;
+		HttpSession session=request.getSession(true);
+
 		try {
-			queryBuilder = new QueryBuilder();
-			queryBuilder.getAllVolo();
+			//in questo caso setto la variabile volo che mi stampa tutti i voli disponibili
+			QueryBuilder queryBuilder = new QueryBuilder();
+			ArrayList<Volo> var = queryBuilder.getAllVolo();
+			session.setAttribute("volo", var);
+			response.sendRedirect("admin.jsp");
+			} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (ConnessioneException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-	
-		doGet(request, response);
+		
 	}
 
 }
