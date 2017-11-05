@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FredomAir</title>
 
-
 <link rel="stylesheet" href="css/general.css" type="text/css"
 	media="all">
 <link rel="stylesheet" href="css/nav.css" type="text/css" media="all">
@@ -13,6 +12,10 @@
 	media="all">
 <link rel="stylesheet" href="css/login.css" type="text/css" media="all">
 
+
+
+    
+ 
 </head>
 <body>
 
@@ -20,6 +23,9 @@
 
 	<!--content -->
 	<!-- tabella per ricercare il volo -->
+
+
+
 	<section id="volo">
 
 		<article class="tab-volo">
@@ -83,9 +89,20 @@
 
 
 
+<!--  <div id="slider">
+   <ul>
+        <li><img src="immagini/sfondo/sfondo1.jpg" /></li>
+        <li><img src="immagini/sfondo/sfondo2.jpg"   /></li>
+        <li><img src="immagini/sfondo/sfondo3.jpg"  /></li>
+  
+   </ul>
+</div>--> 
 	<%@ include file="footer.jsp"%>
 
+
+
 </body>
+
 
 <script type="text/javascript">
 	// When the user scrolls down 40px from the top of the document, show the button
@@ -108,4 +125,6 @@
 		document.documentElement.scrollTop = 0;
 	}
 </script>
+
+
 </html>

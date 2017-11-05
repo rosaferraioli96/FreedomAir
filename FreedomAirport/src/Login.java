@@ -16,8 +16,8 @@ import connessioneDB.ConnessioneException;
 import connessioneDB.QueryBuilder;
 import connessioneDB.exc.LoginFailedException;
 import entita.Biglietto;
-import entita.Volo;
-
+import entita.Carrello;
+import entita.Volo; 
 
 /**
  * Servlet implementation class Login
@@ -40,11 +40,17 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out= response.getWriter();
+		HttpSession session=request.getSession(true);
 		String uname=request.getParameter("uname");
 		String pass= request.getParameter("pass");
 		String amministratore= request.getParameter("amministratore");
+		//prendo i parametri per la ricerca e per l 'aggiunta nel carrello
+		String username= (String) session.getAttribute("name");
+		String variabileVoloA= request.getParameter("codiceVolo");
+		String variabileVoloR = request.getParameter("codiceVoloRitorno");
+		
 		try {
-			HttpSession session=request.getSession(true);
+			
 			QueryBuilder queryBuilder = new QueryBuilder();
 			
 			queryBuilder.getLogin(uname, pass, TypeUsers.valueOf(amministratore).getValue());
@@ -86,10 +92,13 @@ public class Login extends HttpServlet {
 			//salvo nella sessione il numero_telefono utente
 			String numero_telefono = queryBuilder.getNumero_telefono(uname, pass, TypeUsers.valueOf(amministratore).getValue());
 			session.setAttribute("numero_telefono",numero_telefono); 
-			
+	
 			session.setMaxInactiveInterval(60*5);
 			
 
+			
+			
+			
 			out.println(Response.OK.getValue());
 		} catch (LoginFailedException e) {
 			out.println(Response.KO.getValue());

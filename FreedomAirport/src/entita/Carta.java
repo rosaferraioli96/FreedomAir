@@ -5,7 +5,7 @@ public class Carta {
 	
 	
 	
-public Carta( int numero_carta , String tipo, String nominativo, String validità ){
+public Carta(int numero_carta , String tipo, String nominativo, String validità ){
 		
 		this.numero_carta= numero_carta;
 		this.tipo= tipo; 

@@ -1,0 +1,113 @@
+@CHARSET "ISO-8859-1";
+ h2,h3,h5{
+	color: #2266bb;
+}
+
+h4{
+		color: #000080;
+}
+
+body{
+   background-image: linear-gradient(#ffffff 0%,#b3c4ff 100%);
+}
+
+img.floatright {
+	float: right;
+
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,.2), 
+                     inset 0 4px 5px rgba(0,0,0,.6), 
+                     inset 0 1px 0 rgba(0,0,0,.6);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.2), 
+                        inset 0 4px 5px rgba(190, 214, 243, 0.8), 
+                        inset 0 1px 0 rgba(190, 214, 243, 0.8);
+    box-shadow: 0 1px 0 rgba(255,255,255,.2), 
+                inset 0 4px 5px rgba(190, 214, 243, 0.8), 
+                inset 0 1px 0 rgba(190, 214, 243, 0.8);
+ 
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+	margin-left: 2%;
+}
+img.floatleft {
+	float: left;
+
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,.2), 
+                     inset 0 4px 5px rgba(0,0,0,.6), 
+                     inset 0 1px 0 rgba(0,0,0,.6);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.2), 
+                        inset 0 4px 5px rgba(190, 214, 243, 0.8), 
+                        inset 0 1px 0 rgba(190, 214, 243, 0.8);
+    box-shadow: 0 1px 0 rgba(255,255,255,.2), 
+                inset 0 4px 5px rgba(190, 214, 243, 0.8), 
+                inset 0 1px 0 rgba(190, 214, 243, 0.8);
+ 
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+	margin-right: 2%;
+}
+.generalPage {
+   position:absolute; 
+   top:150px; 
+
+    align:right;
+	margin:0 10%;
+}
+
+
+#titolo{
+		color: #2266bb;
+}
+
+img.parcheggio {
+	float: right;
+
+ 
+}
+
+
+/*********************************************** RESPONSE ***********************************************/
+
+/**************************** MAX-WIDTH 768 **************************************/
+@media screen and (max-width : 768px) {
+.generalPage {
+    
+    align:right;
+	margin:0 10%;
+	height: 250px;
+}
+footer{margin: 100%; margin-top: 50%; width: 100%;   height: 100%; }
+
+	
+/** NAV INFERIORE **/
+
+
+}
+/**************************** MAX-WIDTH 768-FINE**************************************/
+
+
+
+/******************************** MIN-WIDTH 769 ***************************************/
+
+@media screen and (min-width : 769px) {
+	
+	.generalPage {
+   position:absolute; 
+   top:150px; 
+  
+    align:right;
+	margin:0 10%;
+}
+
+/**************************** MIN-WIDTH 769-FINE **************************************/
+
+@media screen and (max-width : 330px) {
+
+	nav ul li { 
+ 	 display: block;
+	}
+
+
+
+

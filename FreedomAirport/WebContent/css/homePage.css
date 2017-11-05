@@ -224,7 +224,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     80% {background-image: url(../immagini/sfondo/sfondo5.jpg);}
     100% {background-image: url(../immagini/sfondo/sfondo6.jpg);}
 	}	
-		
 	
 	.tab-volo {
 	float:right;
@@ -296,3 +295,4 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 /**************************** MAX-WIDTH 768-FINE **************************************/
+

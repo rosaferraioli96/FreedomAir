@@ -11,11 +11,12 @@ import connessioneDB.exc.LoginFailedException;
 import connessioneDB.exc.RicercaVoloFailedException;
 import entita.Biglietto;
 import entita.Carrello;
+import entita.Carta;
 import entita.Client;
 import entita.Client1;
 import entita.Volo;
-import entita.Volo1;
-import entita.Volo2;
+
+
 import sun.util.calendar.BaseCalendar.Date;
 
 
@@ -355,6 +356,7 @@ public class QueryBuilder {
 	public ArrayList<Volo> getRicercaVoloAndata(String LuogoP, String LuogoA, String DataP) throws SQLException, LoginFailedException{
 		PreparedStatement preparedStatement ;
 		ArrayList<Volo> allVolo= new ArrayList<>();
+		ArrayList<Volo> volo= new ArrayList<>();
 		String query="SELECT * FROM volo WHERE luogo_partenza='"+ LuogoP + "' AND luogo_arrivo ='"+ LuogoA + "'  AND data_partenza ='"+ DataP + "';";
 		preparedStatement = db.getConnessione().prepareStatement(query);
 
@@ -367,19 +369,46 @@ public class QueryBuilder {
 					rs.getString("ora_partenza"),
 					rs.getString("luogo_arrivo"),
 					rs.getString("data_arrivo"),
-					rs.getString("ora_arrivo")));
+					rs.getString("ora_arrivo"),
+					rs.getFloat("costo")));
 		}
 		
-		//System.out.println(allVolo);
+	
+
 		preparedStatement.close();
 		
 		return allVolo;
-	}
+	
+		}
+	
+	//****************************** Verifica Volo andata*********************************	 
+
+	 public String verificaVoloAndata(String LuogoP, String LuogoA, String DataP) throws ConnessioneException, SQLException {
+			PreparedStatement preparedStatement ;
+			String verifica= "";
+			String query="SELECT codice_id FROM volo WHERE luogo_partenza='"+ LuogoP + "' AND luogo_arrivo ='"+ LuogoA + "'  AND data_partenza ='"+ DataP + "';";
+			preparedStatement = db.getConnessione().prepareStatement(query);
+			ResultSet rs = preparedStatement.executeQuery(query);
+			
+			while(rs.next()) {
+			verifica = rs.getString("codice_id");
+			}
+
+			preparedStatement.close();
+			
+			//se il codice id non esiste, allora viene restituito false
+			if(verifica.equals("")) {
+				return "false";
+			} else {
+				return "true";
+			}
+			
+		}
 	//****************************** Ricerca volo Andata con codice id*********************************
 //in questa query prendo il codice id del volo che voglio inserire nel carrello
 	public 	String getRicercaVoloAndataById(String LuogoP, String LuogoA, String DataP) throws SQLException, LoginFailedException{
 		PreparedStatement preparedStatement ;
-		ArrayList<Volo1> allVolo= new ArrayList<>();
+		
 		String nuova="";
 		String query="SELECT codice_id FROM volo WHERE luogo_partenza='"+ LuogoP + "' AND luogo_arrivo ='"+ LuogoA + "'  AND data_partenza ='"+ DataP + "';";
 		preparedStatement = db.getConnessione().prepareStatement(query);
@@ -469,17 +498,43 @@ public class QueryBuilder {
 		ResultSet rs = preparedStatement.executeQuery(query);
 	
 		while(rs.next()){
-			allVolo.add(new Volo(rs.getString("luogo_partenza"), 
+			allVolo.add(new Volo(rs.getString("codice_id"),
+					rs.getString("luogo_partenza"), 
 					rs.getString("data_partenza"), 
 					rs.getString("ora_partenza"),
 					rs.getString("luogo_arrivo"),
 					rs.getString("data_arrivo"),
-					rs.getString("ora_arrivo")));
+					rs.getString("ora_arrivo"),
+					rs.getFloat("costo")));
 		}
+		
 		preparedStatement.close();
 		
 		return allVolo;
 	}
+	//****************************** Verifica Volo RITORNO*********************************	 
+
+		 public String verificaVoloR(String LuogoP, String LuogoA, String DataP) throws ConnessioneException, SQLException {
+				PreparedStatement preparedStatement ;
+				String verifica= "";
+				String query="SELECT codice_id FROM volo WHERE luogo_partenza='"+ LuogoP + "' AND luogo_arrivo ='"+ LuogoA + "'  AND data_partenza ='"+ DataP + "';";
+				preparedStatement = db.getConnessione().prepareStatement(query);
+				ResultSet rs = preparedStatement.executeQuery(query);
+				
+				while(rs.next()) {
+				verifica = rs.getString("codice_id");
+				}
+
+				preparedStatement.close();
+				
+				//se il codice id non esiste, allora viene restituito false
+				if(verifica.equals("")) {
+					return "false";
+				} else {
+					return "true";
+				}
+				
+			}
 	//****************************** getAllVolo*********************************
 		public ArrayList<Volo> getAllVolo() throws SQLException{
 			ArrayList<Volo> allVolo= new ArrayList<>();
@@ -497,8 +552,10 @@ public class QueryBuilder {
 						rs.getString("ora_partenza"),
 						rs.getString("luogo_arrivo"),
 						rs.getString("data_arrivo"),
-						rs.getString("ora_arrivo")));
+						rs.getString("ora_arrivo"),
+						rs.getFloat("costo")));
 			}
+			
 			preparedStatement.close();
 			return allVolo;
 		}
@@ -518,15 +575,17 @@ public class QueryBuilder {
 						ResultSet rs = preparedStatement.executeQuery(query1);
 					
 				      
-				  	while(rs.next()){
-						allVolo.add(new Volo(rs.getString("codice_id"),
-								rs.getString("luogo_partenza"), 
-								rs.getString("data_partenza"), 
-								rs.getString("ora_partenza"),
-								rs.getString("luogo_arrivo"),
-								rs.getString("data_arrivo"),
-								rs.getString("ora_arrivo")));
-					}
+						while(rs.next()){
+							allVolo.add(new Volo(rs.getString("codice_id"),
+									rs.getString("luogo_partenza"), 
+									rs.getString("data_partenza"), 
+									rs.getString("ora_partenza"),
+									rs.getString("luogo_arrivo"),
+									rs.getString("data_arrivo"),
+									rs.getString("ora_arrivo"),
+									rs.getFloat("costo")));
+						}
+						
 				      preparedStatement.close();
 				  	return allVolo;
 		
@@ -535,35 +594,19 @@ public class QueryBuilder {
 	//****************************** getUsername*********************************	 
 	// ho confrontato l'username dato da input se è uguale a qualcuno gia esistente nel db mi faccio restituire
 	//true se il valore è presente nel db 
-	public boolean getAllUsername(String username) throws SQLException{
-		ArrayList<Client1> allClient= new ArrayList<>();
-		PreparedStatement preparedStatement ;
+	public boolean isClienteExistByUsername(String username) throws SQLException{
 		String query="SELECT username FROM cliente WHERE username ='"+ username + "';";
-		preparedStatement = db.getConnessione().prepareStatement(query);
+		PreparedStatement preparedStatement = db.getConnessione().prepareStatement(query);
 	
-		boolean nuova = false;
 		ResultSet rs = preparedStatement.executeQuery(query);
-		while(rs.next()){
-			allClient.add(new Client1(rs.getString("username")));
-		} 
+		boolean exist = rs.next();
+		rs.close();
 		preparedStatement.close();
-	
-		ArrayList<String> all= new ArrayList<>();
-		all.add(username);
-  
-        for(Client1 i : allClient){
-            if(i.getUsername().equals(username)){
-            	 nuova = true;
-            	 System.out.println(nuova);
-            	throw new RicercaVoloFailedException("Username Gia Utilizzato");
-        }
-        }
-    
-        return nuova;
+		return exist;
 	}
 	//****************************** Inserimento cliente*********************************	 
 
-	public void insertClient(Client1 cliente) throws SQLException {
+	public void insertClient(Client cliente) throws SQLException {
 		PreparedStatement preparedStatement ;
 	
 		String query = "INSERT INTO cliente(username, password, nome, cognome, data_nascita, paese, indirizzo, codice_fiscale, carta_identità, passaporto, email, numero_telefono) VALUES ( '"+cliente.getUsername()+"',"
@@ -571,6 +614,7 @@ public class QueryBuilder {
 		preparedStatement = db.getConnessione().prepareStatement(query);
 
 	    preparedStatement.executeUpdate(query);
+	    preparedStatement.close();
 
 
 	}
@@ -580,7 +624,7 @@ public class QueryBuilder {
 	   PreparedStatement preparedStatement ;
 	   //ArrayList<Volo> allVolo = new ArrayList<>();
 
-	   String query = "INSERT INTO volo(codice_id, luogo_partenza, data_partenza, ora_partenza, luogo_arrivo, data_arrivo, ora_arrivo) VALUES ( '"+volo.getCodice_id()+"','"+volo.getLuogo_partenza()+"', '"+volo.getData_partenza()+"', '"+volo.getOra_partenza()+"', '"+volo.getLuogo_arrivo()+"', '"+volo.getData_arrivo()+"', '"+volo.getOra_arrivo()+"');";
+	   String query = "INSERT INTO volo(codice_id, luogo_partenza, data_partenza, ora_partenza, luogo_arrivo, data_arrivo, ora_arrivo, costo) VALUES ( '"+volo.getCodice_id()+"','"+volo.getLuogo_partenza()+"', '"+volo.getData_partenza()+"', '"+volo.getOra_partenza()+"', '"+volo.getLuogo_arrivo()+"', '"+volo.getData_arrivo()+"', '"+volo.getOra_arrivo()+"', '"+volo.getCosto()+"');";
 	   preparedStatement = db.getConnessione().prepareStatement(query);
 
 	      preparedStatement.executeUpdate(query);
@@ -593,7 +637,7 @@ public class QueryBuilder {
 
 		   ArrayList<Biglietto> allBiglietto = new ArrayList<>();
           
-			String query="SELECT intestatario, compagnia_aerea, classe, numero_posto,  costo FROM biglietto WHERE  rif_cliente='"+ uname + "';";
+			String query="SELECT intestatario, numero_posto FROM biglietto WHERE  rif_cliente='"+ uname + "';";
 			
 			preparedStatement = db.getConnessione().prepareStatement(query);
 
@@ -602,12 +646,8 @@ public class QueryBuilder {
 
 			  
 			while(rs.next() ){
-		  		allBiglietto.add(new Biglietto(
-						rs.getString("intestatario"), 
-						rs.getString("compagnia_aerea"), 
-						rs.getString("classe"),
-						rs.getInt("numero_posto"),
-						rs.getFloat("costo")));
+		  		allBiglietto.add(new Biglietto(rs.getString("intestatario"), 
+						rs.getInt("numero_posto")));
 			}
 			
 			  
@@ -629,6 +669,7 @@ public class QueryBuilder {
 				if (!rs.next()) { 		
 					return null; 
 				}
+				
 				String nuova= rs.getString("rif_volo");
 				
 				String query1= "Select * from volo where codice_id='"+ nuova + "';";
@@ -643,8 +684,10 @@ public class QueryBuilder {
 							rs1.getString("ora_partenza"),
 							rs1.getString("luogo_arrivo"),
 							rs1.getString("data_arrivo"),
-							rs1.getString("ora_arrivo")));
+							rs1.getString("ora_arrivo"),
+							rs1.getFloat("costo")));
 				}
+				
 				preparedStatement.close();
 				return allVolo;
 			}
@@ -655,7 +698,7 @@ public class QueryBuilder {
 
 			   String query = "INSERT INTO carrello(rif_cliente, rif_volo, codice_id) VALUES ( '"+carrello.getrif_cliente()+"', '"+carrello.getrif_volo()+"'," +null+");";
 			   preparedStatement = db.getConnessione().prepareStatement(query);
-System.out.println(query);
+
 			      preparedStatement.executeUpdate(query);
 			      
 			  }
@@ -672,34 +715,211 @@ System.out.println(query);
 
 				ResultSet rs = preparedStatement.executeQuery(query);
 
-				System.out.println(query);
-
+				
 				while(rs.next()){
-					allVolo.add(new Volo(rs.getString("luogo_partenza"), 
+					allVolo.add(new Volo(rs.getString("codice_id"),
+							rs.getString("luogo_partenza"), 
 							rs.getString("data_partenza"), 
 							rs.getString("ora_partenza"),
 							rs.getString("luogo_arrivo"),
 							rs.getString("data_arrivo"),
-							rs.getString("ora_arrivo")));
+							rs.getString("ora_arrivo"),
+							rs.getFloat("costo")));
 				}
 				  
 				
 			  	return allVolo;
 			  }
 			 
+			//****************************** Aggiunta Carta*********************************	 
+			 public  String insertCarta(Carta carta) throws SQLException {
+			   PreparedStatement preparedStatement ;
+			String variabile = "true";
+		
+			   ArrayList<Biglietto> allBiglietto = new ArrayList<>();
+	           String query="Insert into carta (numero_carta, tipo, nominativo, validità)  VALUES ( "+carta.getNumero_carta()+", '"+carta.getTipo()+"','" +carta.getNominativo()+"','" +carta.getValidità()+"');";
+			   if(query == "null"){
+				   variabile="false";
+			   }
+	     
+			   preparedStatement = db.getConnessione().prepareStatement(query);
+			    preparedStatement.executeUpdate(query);
+                   return variabile;
+			
+			  }
+				//****************************** Aggiunta Biglietto*********************************	
+			 public  void insertBiglietto(Biglietto biglietto, Carta carta, String username, String codice_id) throws SQLException {
+				   PreparedStatement preparedStatement ;
+				
+				   
+				   String query1 = "INSERT INTO biglietto(codice_id, intestatario, numero_posto, rif_cliente, rif_carta, rif_volo ) VALUES ("+null+", '"+biglietto.getIntestatario()+"','"+biglietto.getNumero_posto()+"','" + username+"'," + carta.getNumero_carta()+",'" + codice_id+"');";
+				 
+				   preparedStatement = db.getConnessione().prepareStatement(query1);
+
+				   preparedStatement.executeUpdate(query1);
+	    
+	    
+				
+				  }
+				//****************************** Set Volo*********************************	
+			 public String setVolo(String codice_id, String luogo_partenza, String data_partenza, String ora_partenza,  String luogo_arrivo, String  data_arrivo, String ora_arrivo, Float costo) 
+						throws ConnessioneException, SQLException {
+					PreparedStatement preparedStatement ;
+					String nuova = "";
+					
+				
+					if(luogo_partenza != null){
+						String query= "update volo set luogo_partenza = '"+luogo_partenza+"' WHERE codice_id  ='"+codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query);
+						preparedStatement.executeUpdate(query);
+				
+						String query2="SELECT luogo_partenza FROM volo WHERE codice_id ='"+ codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query2);
+					ResultSet rs = preparedStatement.executeQuery(query2);
+						
+						if (!rs.next()) { 		
+							throw new LoginFailedException("Login Failed");  
+						}
+						nuova= rs.getString("luogo_partenza");
+;
+					}	
+
+					if(data_partenza != null){
+						String query= "update volo set data_partenza = '"+data_partenza+"' WHERE codice_id  ='"+codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query);
+						preparedStatement.executeUpdate(query);
+
+						String query2="SELECT data_partenza FROM volo WHERE codice_id ='"+ codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query2);
+						ResultSet rs = preparedStatement.executeQuery(query2);
+						if (!rs.next()) { 		
+							throw new LoginFailedException("Login Failed");  
+						}
+						nuova= rs.getString("data_partenza");
+					}	
+					
+					if(ora_partenza != null){
+						String query= "update volo set ora_partenza = '"+ora_partenza+"' WHERE codice_id  ='"+codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query);
+						preparedStatement.executeUpdate(query);
+
+						String query2="SELECT ora_partenza FROM volo WHERE codice_id ='"+ codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query2);
+						ResultSet rs = preparedStatement.executeQuery(query2);
+						if (!rs.next()) { 		
+							throw new LoginFailedException("Login Failed");  
+						}
+						nuova= rs.getString("ora_partenza");
+					}	
+					
+					
+					if(luogo_arrivo != null){
+						String query= "update volo set luogo_arrivo = '"+luogo_arrivo+"' WHERE codice_id  ='"+codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query);
+						preparedStatement.executeUpdate(query);
+
+						String query2="SELECT luogo_arrivo FROM volo WHERE codice_id ='"+ codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query2);
+						ResultSet rs = preparedStatement.executeQuery(query2);
+						if (!rs.next()) { 		
+							throw new LoginFailedException("Login Failed");  
+						}
+						nuova= rs.getString("luogo_arrivo");
+					}	
+
+					if(data_arrivo != null){
+						String query= "update volo set data_arrivo = '"+data_arrivo+"' WHERE codice_id  ='"+codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query);
+						preparedStatement.executeUpdate(query);
+
+						String query2="SELECT data_arrivo FROM volo WHERE codice_id ='"+ codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query2);
+						ResultSet rs = preparedStatement.executeQuery(query2);
+						if (!rs.next()) { 		
+							throw new LoginFailedException("Login Failed");  
+						}
+						nuova= rs.getString("data_arrivo");
+					}	
+					
+					if(ora_arrivo != null){
+						String query= "update volo set ora_arrivo = '"+ora_arrivo+"' WHERE codice_id  ='"+codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query);
+						preparedStatement.executeUpdate(query);
+
+						String query2="SELECT ora_arrivo FROM volo WHERE codice_id ='"+ codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query2);
+						ResultSet rs = preparedStatement.executeQuery(query2);
+						if (!rs.next()) { 		
+							throw new LoginFailedException("Login Failed");  
+						}
+						nuova= rs.getString("ora_arrivo");
+					}
+					
+					if(costo != null){
+						String query= "update volo set costo = '"+costo+"' WHERE codice_id  ='"+codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query);
+						preparedStatement.executeUpdate(query);
+
+						String query2="SELECT costo FROM volo WHERE codice_id ='"+ codice_id +"';";
+						preparedStatement = db.getConnessione().prepareStatement(query2);
+						ResultSet rs = preparedStatement.executeQuery(query2);
+						if (!rs.next()) { 		
+							throw new LoginFailedException("Login Failed");  
+						}
+						nuova= rs.getString("costo");
+					}
+					return nuova;
+				}
+				
+				//****************************** Verifica ID*********************************	 
+
+			 public String verificaIDVolo (String codice_id) throws ConnessioneException, SQLException {
+					PreparedStatement preparedStatement ;
+					String verifica= "";
+					String query="SELECT luogo_partenza FROM volo WHERE codice_id ='"+ codice_id +"';";
+					preparedStatement = db.getConnessione().prepareStatement(query);
+					ResultSet rs = preparedStatement.executeQuery(query);
+					
+					while(rs.next()) {
+					verifica = rs.getString("luogo_partenza");
+					}
+
+					preparedStatement.close();
+					
+					//se il codice id non esiste, allora viene restituito false
+					if(verifica.equals("")) {
+						return "false";
+					} else {
+						return "true";
+					}
+					
+					
+				}
+			//****************************** Cancella Volo Dal carrello*********************************	 
+				public void cancellaCarrello(Carrello carrello) throws SQLException{
+					PreparedStatement preparedStatement ;
+					
+					String strQuery1 = "delete from carrello where rif_volo = "+ carrello.getrif_volo()+ ";" ;
+					preparedStatement = db.getConnessione().prepareStatement(strQuery1);
+					preparedStatement.executeUpdate(strQuery1);
+                 
+					preparedStatement.close();
+				}
+
+
 	public static void main(String[] args) throws ConnessioneException, SQLException {
 		QueryBuilder nuova= new QueryBuilder();
 		Scanner in = new Scanner(System.in);
-	   Scanner in2 = new Scanner(System.in);
-		Scanner in3 = new Scanner(System.in);
+	   //Scanner in2 = new Scanner(System.in);
+		//Scanner in3 = new Scanner(System.in);
 		System.out.println("Inserisci:: ");
 
 		String numeri1=in.next();
-		String numeri2=in2.next();
-	String numeri3=in3.next();
-		//Carrello nuova2= new Carrello(numeri1,numeri2, null);
-		
-		//System.out.println(nuova.getOra_PartenzaById(numeri1, numeri2, numeri3));
+		//String numeri2=in2.next();
+	//String numeri3=in3.next();
+		Carrello nuova2= new Carrello(numeri1);
+		//nuova.setVolo(numeri1, numeri2, null, null, null, null, null, null);
+	nuova.cancellaCarrello(nuova2);
 	
 	}
 }

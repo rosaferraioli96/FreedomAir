@@ -2,11 +2,15 @@ package entita;
 
 public class Carrello {
 public Carrello( String rif_cliente, String rif_volo, Integer codice_id){
-
+    this.codice_id= codice_id;
 	this.rif_cliente= rif_cliente;
 	this.rif_volo= rif_volo;
 	}
+public Carrello(String rif_volo){
 
+
+	this.rif_volo= rif_volo;
+	}
 
 
 public String getrif_cliente() {
@@ -28,4 +32,6 @@ public String toString() {
 }
 	String rif_cliente;
 	String rif_volo;
+	Integer codice_id;
 }
+

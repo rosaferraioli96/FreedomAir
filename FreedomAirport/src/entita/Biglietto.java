@@ -5,13 +5,25 @@ public class Biglietto {
 
 	
 	
-	public Biglietto(String intestatario, String compagnia_aerea , String classe ,int numero_posto, float costo){
+	public Biglietto(String intestatario, int numero_posto){
 		this.intestatario= intestatario;
-		this.compagnia_aerea= compagnia_aerea; 
-		this.classe=classe;
+		
 	    this.numero_posto=numero_posto;
-		this.costo=costo;
-
+		
+	}
+	public Biglietto(int codice_id, String intestatario, int numero_posto){
+		this.intestatario= intestatario;
+		this.codice_id= codice_id;
+	    this.numero_posto=numero_posto;
+		
+	}
+	public Biglietto(Integer codice_id,  String intestatario, int numero_posto, String rif_cliente , String rif_volo){
+		this.intestatario= intestatario;
+		this.codice_id= codice_id;
+	    this.numero_posto=numero_posto;
+	    this.rif_cliente = rif_cliente;
+	   this.rif_volo= rif_volo;
+		
 	}
 	
 	
@@ -22,31 +34,13 @@ public class Biglietto {
 		this.intestatario = intestatario;
 	}
 
-	public String getCompagnia_aerea() {
-		return compagnia_aerea;
-	}
-	public void setCompagnia_aerea(String compagnia_aerea) {
-		this.compagnia_aerea=  compagnia_aerea;
-	}
-
-	public String getClasse() {
-		return classe;
-	}
-	public void setClasse(String classe) {
-		this.classe=  classe;
-	}
 	public int getNumero_posto() {
 		return numero_posto;
 	}
 	public void setNumero_posto(int numero_posto) {
-		this.numero_posto=  numero_posto;
+		this.numero_posto = numero_posto;
 	}
-	public float getCosto() {
-		return costo;
-	}
-	public void setCosto(int costo) {
-		this.costo=  costo;
-	}
+
 	public Integer getCodice_id() {
 		return codice_id;
 	}
@@ -66,22 +60,22 @@ public class Biglietto {
 	public void setRif_carta(int rif_carta) {
 		this.rif_carta = rif_carta;
 	}
-	public int getRif_volo() {
+	public String getRif_volo() {
 		return rif_volo;
 	}
-	public void setRif_volo(int rif_volo) {
+	public void setRif_volo(String rif_volo) {
 		this.rif_volo = rif_volo;
 	}
 
 
 
 
-
 	@Override
 	public String toString() {
-		return " intestatario=" + intestatario + ", compagnia_aerea="
-				+ compagnia_aerea + ", classe=" + classe + ", numero_posto=" + numero_posto + ", costo=" + costo ;
+		return "Biglietto [codice_id=" + codice_id + ", intestatario=" + intestatario + ", rif_cliente=" + rif_cliente
+				+ ", numero_posto=" + numero_posto + "]";
 	}
+
 
 
 
@@ -90,15 +84,11 @@ public class Biglietto {
 	private Integer codice_id;
 	private String intestatario;
 	
-	private String  compagnia_aerea ;
-	private String classe;
-    
-	private int numero_posto;
-	private float costo;
-
 	private String rif_cliente;
+	private String rif_volo;
+	private int numero_posto;
 	private int rif_carta;
-	private int rif_volo;
+
 
 	
 	

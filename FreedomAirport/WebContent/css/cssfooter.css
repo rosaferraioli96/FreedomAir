@@ -1,0 +1,127 @@
+@CHARSET "ISO-8859-1";
+footer {
+	color: #143b6c;
+	background: rgb(217, 217, 217);
+	left: 0;
+	width: 78%;
+	font-family: sans-serif;
+	}
+
+.posizione {
+ float:left;
+}
+.posizioneDestra{
+	 float:none;
+}
+
+.copyright {
+	height: 10px;
+	margin-top: 10%;
+	margin-bottom: 0px;
+	height: 0px;
+}
+
+.altoCentro {
+	margin-left: 50%;
+	font-size: 17px;
+	height: 5px;
+	margin-top: 0px;
+	margin-right: 100%;
+	margin-bottom: 20px;
+	margin-left: 50%
+	}
+.altoDestra {
+	font-size: 17px;
+	height: 100px;
+	margin-top: 0%;
+	margin-bottom: 5px;
+	margin-left: 100%;
+	margin-right:0%;	
+	}
+	
+
+
+.titoloFooter{
+	margin-bottom: 5px;
+}
+
+/*********************************************** RESPONSE ***********************************************/
+
+/**************************** MAX-WIDTH 768 **************************************/
+@media screen and (max-width : 768px) {
+	
+	
+	footer{margin: 0; margin-top: 0; width: 100%;   height: 100%; }
+	
+	.altoCentro{ 
+     
+	  margin-right:60%;
+	
+}
+	
+.altoDestra {
+		text-align: center;
+		font-size: 17px;
+		height: 95px;
+		margin-top: 0%;
+		margin-bottom: 0px;
+		margin-left: 60%;}
+	.copyright{
+	margin-top:0px;
+	font-size:12px;
+		 margin-bottom: 25px;
+	}
+
+
+
+/** NAV INFERIORE **/
+
+
+}
+/**************************** MAX-WIDTH 768-FINE**************************************/
+
+
+
+/******************************** MIN-WIDTH 769 ***************************************/
+
+@media screen and (min-width : 769px){
+	
+	footer{width: 78%; height: 100%; }
+	
+	.altoCentro{ 
+     
+	  margin-right:60%;	
+	}
+	
+.altoDestra{ 
+ text-align: center;
+	font-size: 17px;
+	  height:85px;
+	  margin-top: 0%;
+	   margin-bottom: 0px;
+	margin-left: 60%;
+}
+	.copyright{
+
+	margin-top:0px;
+	 margin-bottom: 25px;
+
+	
+	}
+
+	
+}
+/**************************** MIN-WIDTH 769-FINE **************************************/
+
+@media screen and (max-width : 330px) {
+
+	.copyright{
+
+	margin-top:0px;
+	 margin-bottom: 50px;
+	 font-size:12px;
+	
+	}
+
+
+

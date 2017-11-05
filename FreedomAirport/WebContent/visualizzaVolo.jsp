@@ -14,24 +14,28 @@
 </head>
 <body>
 	<%@ include file="header.jsp"%>
-	<br>
-	<br>
+	<br> <!-- confronto se la variabile erroreVolo è true se lo è significa che ci sono voli da visualizzare -->
+	<br>  <% String variabile= (String) session.getAttribute("erroreVolo");
+		 if(variabile == "true"){ %>
+	
 		 <% String username= (String) session.getAttribute("name");
 		 if(username != null ){
 		  %>
 	<% ArrayList<Volo> voloAndata = (ArrayList<Volo>) session.getAttribute("voloAndata"); 
         for(Volo v : voloAndata){
      %>
-
+    <b> Codice Identificativo del volo: <%=v.getCodice_id()%></b>
 	<b> Luogo Partenza: <%=v.getLuogo_partenza()%> ,</b>
 	<b> Data Partenza:<%=v.getData_partenza() %>, </b>
 	<b> Ora Partenza:<%=v.getOra_partenza()%>, </b>
 	<b> Luogo Arrivo: <%=v.getLuogo_arrivo()%>, </b>
 	<b> Data Arrivo:<%=v.getData_arrivo()%>, </b>
-	<b> Ora Arrivo <%=v.getOra_arrivo() %> . </b>
+	<b> Ora Arrivo: <%=v.getOra_arrivo() %> . </b>
+	<b> Costo: <%=v.getCosto() %> .  </b>
 	
 	<form action="InsertCarrello" method="post">
 		<input type="hidden" name="codiceVolo" value="<%=v.getCodice_id()%>" />
+        
 		<input id="carrello" type="image" src="immagini/icone/carrello.jpg" width="100" height="30"> 
 	</form>
 	<%  } %>
@@ -39,12 +43,14 @@
 	<% ArrayList<Volo> voloAndata = (ArrayList<Volo>) session.getAttribute("voloAndata"); 
         for(Volo v : voloAndata){
      %>
+      <b> Codice Identificativo del volo: <%=v.getCodice_id()%></b>
 	<b> Luogo Partenza: <%=v.getLuogo_partenza()%> ,</b>
 	<b> Data Partenza:<%=v.getData_partenza() %>, </b>
 	<b> Ora Partenza:<%=v.getOra_partenza()%>, </b>
 	<b> Luogo Arrivo: <%=v.getLuogo_arrivo()%>, </b>
 	<b> Data Arrivo:<%=v.getData_arrivo()%>, </b>
 	<b> Ora Arrivo <%=v.getOra_arrivo() %> . </b>
+		<b> Costo: <%=v.getCosto() %> .  </b>
 	<br>
 <% } %>
      <%  } %>
@@ -57,15 +63,18 @@
 	<% ArrayList<Volo> voloRitorno = (ArrayList<Volo>) session.getAttribute("voloRitorno"); 
   			  for(Volo v : voloRitorno){
   				  %>
+  	<b> Codice Identificativo del volo: <%=v.getCodice_id()%></b>
 	<b> Luogo Partenza: <%=v.getLuogo_partenza()%> ,</b>
 	<b> Data Partenza:<%=v.getData_partenza() %>, </b>
 	<b> Ora Partenza:<%=v.getOra_partenza()%>, </b>
 	<b> Luogo Arrivo: <%=v.getLuogo_arrivo()%>, </b>
 	<b> Data Arrivo:<%=v.getData_arrivo()%>, </b>
 	<b> Ora Arrivo <%=v.getOra_arrivo() %> . </b>
+		<b> Costo: <%=v.getCosto() %> .  </b>
 		<br>
 		<form action="InsertCarrello" method="post">
 		<input type="hidden" name="codiceVoloRitorno" value="<%=v.getCodice_id()%>" />
+		
 		<input id="carrello" type="image" src="immagini/icone/carrello.jpg" width="100" height="30"> 
 	</form>
 	<%  } %>
@@ -73,16 +82,24 @@
 	<% ArrayList<Volo> voloAndata = (ArrayList<Volo>) session.getAttribute("voloAndata"); 
         for(Volo v : voloAndata){
      %>
+      <b> Codice Identificativo del volo: <%=v.getCodice_id()%></b>
 	<b> Luogo Partenza: <%=v.getLuogo_partenza()%> ,</b>
 	<b> Data Partenza:<%=v.getData_partenza() %>, </b>
 	<b> Ora Partenza:<%=v.getOra_partenza()%>, </b>
 	<b> Luogo Arrivo: <%=v.getLuogo_arrivo()%>, </b>
 	<b> Data Arrivo:<%=v.getData_arrivo()%>, </b>
 	<b> Ora Arrivo <%=v.getOra_arrivo() %> . </b>
+		<b> Costo: <%=v.getCosto() %> .  </b>
 	<br>
 <% } %>
      <%  } %>
+     	<%}else{ %>	
+		 <h1>Voli non disponibili</h1>
+		 <h1> Ritorno alla pagina iniziale cliccando <a href="index.jsp"> qui</a></h1>
+<%  } %>
 
+
+<!-- se la variabile è diversa da true significa che nn ci sono voli -->
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

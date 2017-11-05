@@ -4,7 +4,9 @@ package entita;
 
 public class Client {
 
-
+	public Client(){
+		
+	}
 	public Client(String nome, String cognome,  String date, String paese,
 			String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono){
 		this.nome= nome;
@@ -18,8 +20,24 @@ public class Client {
 		this.email= email;
 		this.numero_telefono= numero_telefono;
 	}
+
 public Client(String nome){
 	this.nome= nome;
+}
+public Client(String username, String password, String nome, String cognome,  String date, String paese,
+		String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono){
+	this.username=username;
+	this.password= password;
+	this.nome= nome;
+	this.cognome= cognome;
+	this.data_nascita= date;
+	this.paese= paese;
+	this.indirizzo= indirizzo;
+	this.codice_fiscale= codice_fiscale;
+	this.carta_identita= carta_identita;
+	this.passaporto= passaporto;
+	this.email= email;
+	this.numero_telefono= numero_telefono;
 }
 	public String getUsername(){
 		return username;

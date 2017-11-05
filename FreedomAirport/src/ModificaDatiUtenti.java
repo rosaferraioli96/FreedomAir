@@ -115,7 +115,7 @@ public class ModificaDatiUtenti extends HttpServlet {
 
 			}
 			session.setMaxInactiveInterval(60*5);
-			response.sendRedirect("admin.jsp");
+			response.sendRedirect("cliente.jsp");
 		} catch (ConnessioneException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

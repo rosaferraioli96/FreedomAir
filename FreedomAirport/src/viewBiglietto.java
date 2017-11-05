@@ -66,6 +66,7 @@ public class viewBiglietto extends HttpServlet {
 			
 			}else{
 		  //setto gli attributi nel caso in cui ci sono i voli da visualizzare
+				
 					session.setAttribute("biglietto", variabileBiglietto);
 				    session.setAttribute("voloCliente", var2);
 					response.sendRedirect("cliente.jsp");

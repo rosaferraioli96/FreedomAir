@@ -10,14 +10,19 @@
 <link rel="stylesheet" href="css/nav.css" type="text/css" media="all">
 
 <link rel="stylesheet" href="css/login.css" type="text/css" media="all">
+
+<link rel="stylesheet" href="css/cssPerPagine.css" type="text/css" media="all">
 </head>
 <body>
 <%@ include file="header.jsp"%>
-
-<p>	Contatti<br>
+<div class="generalPage" >
+	  <font face="sans-serif">
+<h3>	Contatti  <img src="immagini/immaginiPagineGenerali/phone.png" width="20" ></h3> 
 Ferraioli and Napolitano Services <br>
 ph.+39 081 026658 <br>
 fax + 39 081 5241368
+</font>
+</div>
 </p>
 <%@ include file="footer.jsp"%>
 </body>

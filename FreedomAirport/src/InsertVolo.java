@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import connessioneDB.ConnessioneException;
 import connessioneDB.QueryBuilder;
 import connessioneDB.exc.RicercaVoloFailedException;
-import entita.Client1;
+
 import entita.Volo;
 
 /**
@@ -55,11 +55,11 @@ public class InsertVolo extends HttpServlet {
 		String luogo_arrivo = request.getParameter("luogo_arrivo");
 		String  data_arrivo = request.getParameter("data_arrivo");
 		String  ora_arrivo = request.getParameter("ora_arrivo");
-
+        float costo= Float.parseFloat(request.getParameter("costo")); 
 		try {
 			QueryBuilder queryBuilder = new QueryBuilder();
 
-			Volo volo = new Volo (codice_id, luogo_partenza, data_partenza, ora_partenza, luogo_arrivo, data_arrivo, ora_arrivo);
+			Volo volo = new Volo (codice_id, luogo_partenza, data_partenza, ora_partenza, luogo_arrivo, data_arrivo, ora_arrivo, costo);
 			queryBuilder.inserimentoVolo(volo);
 			ArrayList<Volo> variabile= queryBuilder.getAllVolo();
 			HttpSession session=request.getSession(true);  

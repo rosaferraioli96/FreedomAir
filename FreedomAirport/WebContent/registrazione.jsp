@@ -10,103 +10,111 @@
 	media="all">
 <link rel="stylesheet" href="css/nav.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/login.css" type="text/css" media="all">
-
+<link rel="stylesheet" href="css/registrazione.css" type="text/css"
+	media="all">
+	<link rel="stylesheet" href="css/cssPerPagine.css" type="text/css"
+	media="all">
 </head>
 <body>
 
 	<%@ include file="header.jsp"%>
 
-	<section>
-		<form action="Registrazione" method="post">
-			<label><b>Username</b></label> 
-			<input type="text" class="input_log" placeholder="Enter Username" name="uname" id="username"> 
-			<label><b>Password</b></label>
-			<input type="text" class="input_log" placeholder="Enter Password" name="pass" id="password"> 
-			<label><b>Nome</b></label>
-			 <input type="text" class="input_log" placeholder="Enter Nome" name="nome" id="nome">
-			 <label><b>Cognome</b></label>
-			  <input type="text" class="input_log" placeholder="Enter Cognome" name="cognome" id="cognome"> 
-			 <label><b>Data Di Nascita</b></label> 
-			 <input type="text" class="input_log" placeholder="Enter Data di Nascita Anno-Mese-Giorno" name="dataDiNascita" id="dataDiNascita"> <label><b>Paese</b></label>
-			<select name="paese" id="paese">
-				<option value="It">Italia (IT)</option>
-				<option value="UK">Regno Unito (UK)</option>
-				<option value="F">Francia (F)</option>
-				<option value="E">Spagna (E)</option>
-				<option value="RO ">Romania (RO)</option>
-				<option value="GR">Grecia (GR)</option>
-				<option value="D">Germania (G)</option>
-			</select> <br> <br>
-			 <label><b>Indirizzo</b></label>
-			  <input type="text" class="input_log" placeholder="Enter Address" name="indirizzo" id="indirizzo">
-			  <label><b>Codice Fiscale</b></label>
-			   <input type="text" class="input_log" placeholder="Enter Codice Fiscale" name="codiceFiscale" id="codiceFiscale"> 
-			  <label><b>Codice Carta Di Identità</b></label>
-			   <input type="text" class="input_log" placeholder="Enter Codice Carta Di Identità" name="cartaidentita" id="cartaidentita"> 
-			   <label><b>Codice Passaporto</b></label>
-			<input type="text" class="input_log" placeholder="Enter Codice Passaporto" name="passaporto" id="passaporto">
-			 <label><b>Email</b></label> 
-			 <input type="text" class="input_log" placeholder="Enter Email" name="email" id="email">
-			  <label><b>Numero Telefono</b></label> <input type="number" class="input_log" placeholder="Enter Numero Telefono" name="numerotelefono" id="numerotelefono">
-			   <input type="submit" value="invio" id="submitRegistrazione">
-		</form>
+	<br>
+	<br>
+	<br>
+		<br>
+	<br>
+	<br>
+		<br>
+	
+	<form action="Registrazione" method="post" onsubmit="return invio()">
 
+		<div class="form-style-5" align="center">
 
-
-<!--	<script src="http://code.jquery.com/jquery-1.6.4.min.js"
-	type="text/javascript"  > </script>
-<script type="text/javascript">
- $(function() {
-		$('#submitRegistrazione').click(function() {
-
-			var username = $('#username').val();
-			var password = $('#password').val();
-			var nome= $('#nome').val();
-			var cognome= $('#cognome').val();
-			var dataDiNascita= $('#dataDiNascita').val();
-			var paese= $('#paese').val();
-			var indirizzo= $('#indirizzo').val();
-			var codiceFiscale= $('#codiceFiscale').val();
-			var cartaidentita= $('#cartaidentita').val();
-			var passaporto= $('#passaporto').val();
-			var numerotelefono= $('#numerotelefono').val();
-			$.ajax({
-				url : '/FreedomAirport/Registrazione',
-				type : 'POST',
-				data : {
-					uname : username,
-					pass : password,
-					nome: nome,
-					cognome : cognome,
-					dataDiNascita: dataDiNascita,
-					paese : paese,
-					indirizzo : indirizzo,
-					codiceFiscale : codiceFiscale,
-					cartaidentita : cartaidentita,
-					passaporto: passaporto,
-					email: email,
-					numero: numerotelefono
+			<fieldset >
+				<legend>
+					<span class="number">1</span> Candidate Info
+				</legend>
+			<div id="input">
+		<input type="text" placeholder="Enter Username" name="uname" id="usernameReg" required maxlength="6">  </div>
+				<div id="input">	<input type="password" class="input_log" placeholder="Enter Password" name="pass" id="passwordReg" required maxlength="10"> </div>
+				
+					<div id="input"><input type="text" class="input_log" placeholder="Enter Name" name="nome" id="nome" required maxlength="15"> </div>
+		
+					<div id="input"><input type="text" class="input_log" placeholder="Enter Surname" name="cognome" id="cognome" required maxlength="10"> </div>
+			
+			   	<div id="input"> <input type="text" class="input_log" placeholder="Enter Date Of Birth (Year-Month-Day)"	 required name="dataDiNascita" id="dataDiNascita"></div> 
+               <select name="paese" id="paese">
+					<option value="It">Italia (IT)</option>
+					<option value="UK">Regno Unito (UK)</option>
+					<option value="F">Francia (F)</option>
+					<option value="E">Spagna (E)</option>
+					<option value="RO ">Romania (RO)</option>
+					<option value="GR">Grecia (GR)</option>
+					<option value="D">Germania (G)</option>
+					<option value="BE">Belgio (BE)</option>
+					<option value="HR">Croazia (HR)</option>
+					<option value="HU">Ungheria (HU)</option>
+					<option value="PT">Portogallo (PT)</option>
+				</select></fieldset>
+		
+	<div id="input">
+				<input type="text" class="input_log" placeholder="Enter Address" name="indirizzo" id="indirizzo" maxlength="20"> </div>
+					<div id="input"><input type="text" class="input_log" placeholder="Enter Fiscal Code" name="codiceFiscale" id="codiceFiscale" maxlength="15"> </div>
+					<div id="input"><input type="text" class="input_log" placeholder="Enter Identity Card Code"	name="cartaidentita" id="cartaidentita" maxlength="8"></div>
+					<div id="input"><input type="text" class="input_log" placeholder="Enter Passport Code" name="passaporto" id="passaporto" maxlength="8"> </div>
+					<div id="input"><input type="text" class="input_log" placeholder="Enter Email" name="email" required id="emailReg" maxlength="20" ></div>
 					
-				},
-				success : function(result) {
-					if (parseInt(result)) {
-						alert("Operazione eseguita con successo!!!");
-						location.reload();
-					} else {
-						alert("Si è verificato un errore!!");
-					}
-				},
-				error : function() {
-					alert("Si è verificato un errore!!");
-				}
-			});
-			return false;
-		});
+					<input type="number" class="input_log" placeholder="Enter Telephone Number" name="numerotelefono" id="numerotelefono" maxlength="10">
+				<br>	  I campi contrassegnati con * sono obbligatori. 
+					 <br>  <br> 
+					<div id="input" > <input type="submit" value="Crea Account"	id="submitRegistrazione">	
+	</div>
+				
+			
 
+		</div>
+	</form>
+
+<script type="text/javascript">
+
+function invio() {
+	$.ajax({
+		url : '/FreedomAirport/Registrazione',
+		dataType : 'json',
+		type : 'POST',
+		data : {
+			uname : $('#usernameReg').val(),
+			pass : $('#passwordReg').val(),
+			nome: $('#nome').val(),
+			cognome : $('#cognome').val(),
+			dataDiNascita: $('#dataDiNascita').val(),
+			paese : $('#paese').val(),
+			indirizzo : $('#indirizzo').val(),
+			codiceFiscale : $('#codiceFiscale').val(),
+			cartaidentita : $('#cartaidentita').val(),
+			passaporto: $('#passaporto').val(),
+			email:  $('#emailReg').val(),
+			numerotelefono:  $('#numerotelefono').val()
+		},
+		success : function(result) {
+			if (parseInt(result['result'])) {
+				alert("Operazione eseguita con successo!!!");
+				 window.location.replace(encodeURIComponent("index.jsp"));
+			} else {
+				alert("Si è verificato il seguente errore: "+ result['description']);
+			}
+		},
+		error : function() {
+			alert("Si è verificato un errore!!");
+		}
 	});
+	return false;
+	
+}
 
-</script> -->
-	</section>
+
+</script> 
 
 	<%@ include file="footer.jsp"%>
 

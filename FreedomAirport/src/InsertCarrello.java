@@ -15,8 +15,7 @@ import connessioneDB.ConnessioneException;
 import connessioneDB.QueryBuilder;
 import entita.Carrello;
 import entita.Volo;
-import entita.Volo1;
-import entita.Volo2;
+
 
 /**
  * Servlet implementation class InsertCarrello
@@ -51,7 +50,6 @@ public class InsertCarrello extends HttpServlet {
 		String username= (String) session.getAttribute("name");
 		String variabileVoloA= request.getParameter("codiceVolo");
 		String variabileVoloR = request.getParameter("codiceVoloRitorno");
-		//String variabile2= (String) session.getAttribute("ora_partenza");
 		try {
 			QueryBuilder nuova= new QueryBuilder();
 			if(variabileVoloA != null){
@@ -67,8 +65,9 @@ public class InsertCarrello extends HttpServlet {
 			if(variabileVoloR !=null){
 	        Carrello variabileCarrelloR = new Carrello(username, variabileVoloR, null);
 			//nuova.inserimentoCarrello(varaibileCarrelloR);
-			nuova.inserimentoCarrello(variabileCarrelloR);
-			ArrayList<Volo> var = nuova.getCarrello(username);
+		   	nuova.inserimentoCarrello(variabileCarrelloR);
+			
+		   	ArrayList<Volo> var = nuova.getCarrello(username);
 	        
 	        session.setAttribute("carrello", var);
 	        

@@ -18,8 +18,6 @@ import connessioneDB.QueryBuilder;
 import connessioneDB.exc.LoginFailedException;
 import connessioneDB.exc.RicercaVoloFailedException;
 import entita.Volo;
-import entita.Volo1;
-import entita.Volo2;
 
 /**
  * Servlet implementation class RicervaVolo
@@ -60,17 +58,35 @@ public class RicercaVolo extends HttpServlet {
 	
 		try {
 			QueryBuilder queryBuilder = new QueryBuilder();
+			String variabileProvaA = queryBuilder.verificaVoloAndata(LuogoP, LuogoA, DataP);
+		
+			if(variabileProvaA.equals("true")){
+			
 			ArrayList<Volo> variabile = queryBuilder.getRicercaVoloAndata(LuogoP, LuogoA, DataP);
 			ArrayList<Volo> variabile2 =  queryBuilder.getRicercaVoloAndata(LuogoA, LuogoP, DataR);
-		//setto il codice id perchè mi serve per il carello
+			session.setAttribute("voloRitorno", variabile2);
+			
+			//setto il codice id perchè mi serve per il carello
 			String variabile3= queryBuilder.getRicercaVoloAndataById(LuogoP, LuogoA, DataP);
+			
+			System.out.println(variabile2);
+			System.out.println(variabile);
 			//ArrayList<Volo2> variabile4= queryBuilder.getOra_PartenzaById(LuogoP, LuogoA, DataP);
 			//session.setAttribute("ora_partenza", variabile4);
 			session.setAttribute("codice_id", variabile3);
 			session.setAttribute("voloAndata",variabile);
-			session.setAttribute("voloRitorno", variabile2);
 			
+			String stringa1  = "true";
+			session.setAttribute("erroreVolo", stringa1);
 			response.sendRedirect("visualizzaVolo.jsp");
+			}else{
+				//setto una variabile erroreVolo in modo tale da avere un errore quando non ci sono voli
+       			 String stringa  = "false";
+			    session.setAttribute("erroreVolo", stringa); 
+			    response.sendRedirect("visualizzaVolo.jsp");
+			}
+			
+	
 			session.setMaxInactiveInterval(60*5);
 
 		} catch (RicercaVoloFailedException e) {
