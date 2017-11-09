@@ -4,6 +4,19 @@ public class Volo {
 
 
 	
+	public Volo(String codice_id, String luogo_partenza, String data_partenza, String ora_partenza,  String luogo_arrivo, String  data_arrivo, String ora_arrivo, float costo,	 String intestatario,int numero_posto ){
+
+		this.codice_id= codice_id;
+		this.luogo_partenza= luogo_partenza; 
+		this.data_partenza=data_partenza;
+		this.ora_partenza=ora_partenza;
+		this.luogo_arrivo= luogo_arrivo; 
+		this.data_arrivo=data_arrivo;
+		this.ora_arrivo=ora_arrivo;
+		this.costo=costo;
+		this.numero_posto=numero_posto;
+		this.intestatario=intestatario;
+	}
 	public Volo(String codice_id, String luogo_partenza, String data_partenza, String ora_partenza,  String luogo_arrivo, String  data_arrivo, String ora_arrivo, float costo){
 
 		this.codice_id= codice_id;
@@ -102,7 +115,19 @@ public class Volo {
 		this.costo=  costo;
 	}
 
+	public String getIntestatario() {
+		return intestatario;
+	}
+	public void setIntestatario(String intestatario) {
+		this.intestatario = intestatario;
+	}
 
+	public int getNumero_posto() {
+		return numero_posto;
+	}
+	public void setNumero_posto(int numero_posto) {
+		this.numero_posto = numero_posto;
+	}
 
 
 	@Override
@@ -118,7 +143,7 @@ public class Volo {
 
 
 
-
+	private String intestatario;
 	private String codice_id;
 	private String  luogo_partenza; 
 	private String data_partenza;
@@ -127,6 +152,7 @@ public class Volo {
 	private String  data_arrivo ;
 	private String  ora_arrivo;
 	private float costo;
+	private int numero_posto;
 
 }
 

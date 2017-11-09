@@ -1,6 +1,36 @@
 @CHARSET "ISO-8859-1";
 
+/************lista luoghi****************/
+#ui-id-1{
+ 
+ background-color:#e6e6e6;
+ margin-right:90%;
+ padding:0px;
+ margin-bottom: 5px;
+}
 
+#ui-id-2{
+ 
+ background-color:#e6e6e6;
+ margin-right:90%;
+ padding:0px;
+ margin-bottom: 5px;
+}
+.ui-menu-item{
+ font-family: sans-serif;
+ color:#000080;
+    text-align: center; 
+    padding:5px;
+}
+.ui-menu-item:FOCUS,.ui-menu-item:HOVER{
+ 
+ background-color:#6666ff;
+}
+.ui-helper-hidden-accessible{
+
+ display: none;
+}
+/************lista luoghi****************/
 
 /************************************** VOLO ***********************************************/
 
@@ -73,11 +103,6 @@ body{
 }
 
 
-#ricerca-volo .col-content {
-	padding: 4px 10px;
-	margin-bottom: 14px;
-}
-
 
 #ricerca-volo .col-content #name{
 	margin-bottom: 2px;
@@ -94,7 +119,7 @@ body{
 	background-position: 3%;
 	/*immagine aereo*/
 	/*border:1px solid aqua; /*bordo*/
-	color:fuchsia; /*colore del testo*/
+	color:#b30047; /*colore del testo*/
 	font: 20px Arial, Helvetica, sans-serif;
 	padding-bottom: 8px;
 	padding-top: 8px;
@@ -112,7 +137,7 @@ body{
 	background: white;
 	border: 2px solid #2877d7; /*colore bordo*/
 	font: 18px Arial, Helvetica, sans-serif;
-	color:fuchsia;
+	color:#b30047;
 	padding:8px 4px;
 	height: 20px;
 	width:82% !important;
@@ -124,7 +149,12 @@ body{
     visibility: visible !important;*/
 }
 
-
+#ricerca-volo .input:FOCUS, input[type=date]:FOCUS {
+	outline: none; /*toglie il bordo blu intorno*/
+	border: 2px solid #3abdef; /*bordo colore quando selezionato*/
+	box-shadow: inset 2px 2px 8px gray;
+	border-collapse: collapse;
+}
 
 /* rimuove le doppie frecce */
 input[type="date"]::-webkit-clear-button {
@@ -150,15 +180,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     height: 14px;
     margin-left: 5px;
 }
-
-
-#ricerca-volo .input:FOCUS, input[type=date]:FOCUS {
-	outline: none; /*toglie il bordo blu intorno*/
-	border: 2px solid #3abdef; /*bordo colore quando selezionato*/
-	box-shadow: inset 2px 2px 8px gray;
-	border-collapse: collapse;
-}
-	
 
 
 
@@ -208,7 +229,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 /*********************************************** RESPONSE ***********************************************/
 
 @media only screen and (min-width: 700px) and (max-width: 768px)  {
-	#ricerca-volo .data{ margin: 0 8%; }
+	#ricerca-volo .data{ margin: 0 15%; }
 	#ricerca-volo .col-content {margin-left: 5%; margin-right: 2%;}
 }
 
@@ -224,6 +245,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     80% {background-image: url(../immagini/sfondo/sfondo5.jpg);}
     100% {background-image: url(../immagini/sfondo/sfondo6.jpg);}
 	}	
+		
 	
 	.tab-volo {
 	float:right;
@@ -244,11 +266,16 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 		
 	}
 	
-	#ricerca-volo .col-content { margin: 0px 20%; }
 	
+#ricerca-volo .col-content {
+	padding: 4px 10px;
+	margin: 0px 20%; 
+}
+	
+
 	#ricerca-volo .input { padding-left: 16%;}
 	
-	.button_cerca{ margin-top: 8%; }
+	.button_cerca{ margin-top: 5%; }
 	
 	footer{
 	  margin-top: 75%; 
@@ -261,7 +288,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 /**************************** MIN-WIDTH 769-FINE **************************************/
 
 /**************************** MAX-WIDTH 768 **************************************/
-@media screen and (max-width : 768px) {
+@media screen and (max-width : 768px) and (min-width : 359px){
 	
 	.tab-volo {
 	float:none;
@@ -282,17 +309,25 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 	
 	.tab-volo .content { border-radius:0 0 6px 6px; height: 300px;}
 	
+	.button_cerca{ margin-top: 4%; }
+	
+	
 	#ricerca-volo .row-content{ text-align: center;}
 	
-	 #ricerca-volo .data{display: flex; margin: 0 5%;} 
+	 #ricerca-volo .data{display: flex; } 
 	 
 	 #ricerca-volo .input {text-align: center; padding-left: 10%;}
 	  
 	 #ricerca-volo .input1 {text-align: center;}
 	 
-	 .button_cerca{ margin-top: 3%; }
 	 
 }
 
 /**************************** MAX-WIDTH 768-FINE **************************************/
 
+
+
+@media screen and (max-width : 360px) {
+	#ricerca-volo .row-content{ text-align: center;}
+	.button_cerca{ margin-top: 9%; }
+}

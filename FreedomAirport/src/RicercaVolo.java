@@ -69,8 +69,7 @@ public class RicercaVolo extends HttpServlet {
 			//setto il codice id perchè mi serve per il carello
 			String variabile3= queryBuilder.getRicercaVoloAndataById(LuogoP, LuogoA, DataP);
 			
-			System.out.println(variabile2);
-			System.out.println(variabile);
+		
 			//ArrayList<Volo2> variabile4= queryBuilder.getOra_PartenzaById(LuogoP, LuogoA, DataP);
 			//session.setAttribute("ora_partenza", variabile4);
 			session.setAttribute("codice_id", variabile3);

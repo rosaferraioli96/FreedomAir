@@ -1,0 +1,106 @@
+@CHARSET "ISO-8859-1";
+
+
+
+body, html {
+	background-image: url("../immagini/immaginiPagineGenerali/air2.jpg");
+    background-repeat: no-repeat;
+   
+    background-attachment: fixed;
+      background-position: center top;
+  padding:5px;
+}
+.bgimg {
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
+
+
+.middle {
+ margin:250px;
+    top: 100%;
+    left: 50%;
+
+    text-align: center;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+
+/*********************************************** RESPONSE ***********************************************/
+
+/**************************** MAX-WIDTH 768 **************************************/
+@media screen and (max-width : 768px) {
+body, html {
+	    background-image: url("../immagini/immaginiPagineGenerali/air2.jpg");
+    background-repeat: no-repeat;
+    margin: 0;
+     -moz-background-size: cover;
+        -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.middle {
+	 margin:100px;
+    top: 100%;
+    left: 50%;
+    text-align: center;
+}
+}
+
+/*********************************************** FINE ***********************************************/
+/******************************** MIN-WIDTH 769 ***************************************/
+
+@media screen and (min-width : 769px) {
+
+	body, html {
+	    background-image: url("../immagini/immaginiPagineGenerali/air2.jpg");
+    background-repeat: no-repeat;
+    margin: 0;
+    -moz-background-size: cover;
+        -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	}
+	.middle {
+ margin:180px;
+    top: 100%;
+    left: 50%;
+
+    text-align: center;
+}
+}
+
+
+/**************************** MIN-WIDTH 769-FINE **************************************/
+
+@media screen and (max-width : 330px) {
+	body, html {
+	    background-image: url("../immagini/immaginiPagineGenerali/air2.jpg");
+    background-repeat: no-repeat;
+    margin: 0;
+    -moz-background-size: cover;
+        -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	}
+	.middle {
+ margin:100px;
+    top: 100%;
+    left: 50%;
+
+    text-align: center;
+}
+	
+
+}

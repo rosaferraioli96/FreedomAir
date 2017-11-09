@@ -15,7 +15,7 @@
 </head>
 <body>
 <%@ include file="header.jsp"%>
-<div class="generalPage" >
+<div class="contatti" >
 	  <font face="sans-serif">
 <h3>	Contatti  <img src="immagini/immaginiPagineGenerali/phone.png" width="20" ></h3> 
 Ferraioli and Napolitano Services <br>
@@ -23,7 +23,7 @@ ph.+39 081 026658 <br>
 fax + 39 081 5241368
 </font>
 </div>
-</p>
+<br> <br><br> <br><br> <br><br> <br><br> <br>
 <%@ include file="footer.jsp"%>
 </body>
 </html>

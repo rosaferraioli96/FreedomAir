@@ -84,7 +84,7 @@ public class QueryBuilder {
 			}
 			String nuova= rs.getString("cognome");
 			
-			System.out.println(nuova);
+			
 			preparedStatement.close();
 			return nuova;
 		}
@@ -103,8 +103,7 @@ public class QueryBuilder {
 				throw new LoginFailedException("Login Failed");
 			}
 			String nuova= rs.getString("password");
-			
-			System.out.println(nuova);
+		
 			preparedStatement.close();
 			return nuova;
 		}
@@ -123,8 +122,7 @@ public class QueryBuilder {
 						throw new LoginFailedException("Login Failed");
 					}
 					String nuova= rs.getString("codice_fiscale");
-					
-					System.out.println(nuova);
+				
 					preparedStatement.close();
 					return nuova;
 				}
@@ -145,7 +143,7 @@ public class QueryBuilder {
 					}
 					String nuova= rs.getString("carta_identità");
 					
-					System.out.println(nuova);
+					
 					preparedStatement.close();
 					return nuova;
 				}
@@ -165,7 +163,6 @@ public class QueryBuilder {
 					}
 					String nuova= rs.getString("passaporto");
 					
-					System.out.println(nuova);
 					preparedStatement.close();
 					return nuova;
 				}
@@ -185,7 +182,6 @@ public class QueryBuilder {
 					}
 					String nuova= rs.getString("email");
 					
-					System.out.println(nuova);
 					preparedStatement.close();
 					return nuova;
 				}
@@ -205,7 +201,6 @@ public class QueryBuilder {
 					}
 					String nuova= rs.getString("numero_telefono");
 					
-					System.out.println(nuova);
 					preparedStatement.close();
 					return nuova;
 				}
@@ -248,7 +243,6 @@ public class QueryBuilder {
 			String query2="SELECT cognome FROM cliente WHERE username='"+ uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query2);
 			ResultSet rs = preparedStatement.executeQuery(query2);
-			System.out.println(query2);
 			if (!rs.next()) { 		
 				throw new LoginFailedException("Login Failed");  
 			}
@@ -260,11 +254,9 @@ public class QueryBuilder {
 			String query= "update cliente set password= '"+password+"' WHERE username ='"+uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query);
 			preparedStatement.executeUpdate(query);
-			System.out.println(query);
 			String query2="SELECT password FROM cliente WHERE username='"+ uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query2);
 			ResultSet rs = preparedStatement.executeQuery(query2);
-			System.out.println(query2);
 			if (!rs.next()) { 		
 				throw new LoginFailedException("Login Failed");  
 			}
@@ -277,11 +269,9 @@ public class QueryBuilder {
 			String query= "update cliente set codice_fiscale  = '"+codiceFiscale+"' WHERE username ='"+uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query);
 			preparedStatement.executeUpdate(query);
-			System.out.println(query);
 			String query2="SELECT codice_fiscale FROM cliente WHERE username='"+ uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query2);
 			ResultSet rs = preparedStatement.executeQuery(query2);
-			System.out.println(query2);
 			if (!rs.next()) { 		
 				throw new LoginFailedException("Login Failed");  
 			}
@@ -294,11 +284,9 @@ public class QueryBuilder {
 			String query= "update cliente set carta_identità  = '"+CartaIdentità+"' WHERE username ='"+uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query);
 			preparedStatement.executeUpdate(query);
-			System.out.println(query);
 			String query2="SELECT   carta_identità FROM cliente WHERE username='"+ uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query2);
 			ResultSet rs = preparedStatement.executeQuery(query2);
-			System.out.println(query2);
 			if (!rs.next()) { 		
 				throw new LoginFailedException("Login Failed");  
 			}
@@ -310,7 +298,6 @@ public class QueryBuilder {
 			String query= "update cliente set passaporto  = '"+passaporto+"' WHERE username ='"+uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query);
 			preparedStatement.executeUpdate(query);
-			System.out.println(query);
 			String query2="SELECT passaporto FROM cliente WHERE username='"+ uname+"';";
 			preparedStatement = db.getConnessione().prepareStatement(query2);
 			ResultSet rs = preparedStatement.executeQuery(query2);
@@ -357,7 +344,7 @@ public class QueryBuilder {
 		PreparedStatement preparedStatement ;
 		ArrayList<Volo> allVolo= new ArrayList<>();
 		ArrayList<Volo> volo= new ArrayList<>();
-		String query="SELECT * FROM volo WHERE luogo_partenza='"+ LuogoP + "' AND luogo_arrivo ='"+ LuogoA + "'  AND data_partenza ='"+ DataP + "';";
+		String query="SELECT * FROM volo WHERE luogo_partenza='"+ LuogoP + "' AND luogo_arrivo ='"+ LuogoA + "'  AND data_partenza ='"+ DataP + "'ORDER BY codice_id ASC;" ;
 		preparedStatement = db.getConnessione().prepareStatement(query);
 
 		ResultSet rs = preparedStatement.executeQuery(query);
@@ -418,74 +405,12 @@ public class QueryBuilder {
 		while(rs.next()){
 			nuova= rs.getString("codice_id");
 		}
-		//System.out.println(allVolo);
 		preparedStatement.close();
 		
 		return nuova;
 	}
 	
-	/*public 	ArrayList<Volo2> getOra_PartenzaById(String LuogoP, String LuogoA, String DataP) throws SQLException, LoginFailedException{
-		PreparedStatement preparedStatement ;
-		ArrayList<Volo2> allVolo= new ArrayList<>();
-		String query="SELECT ora_partenza FROM volo WHERE luogo_partenza='"+ LuogoP + "' AND luogo_arrivo ='"+ LuogoA + "'  AND data_partenza ='"+ DataP + "';";
-		preparedStatement = db.getConnessione().prepareStatement(query);
-
-		ResultSet rs = preparedStatement.executeQuery(query);
 	
-		while(rs.next()){
-			allVolo.add(new Volo2(rs.getString("ora_partenza")));
-		}
-		//System.out.println(allVolo);
-		preparedStatement.close();
-		
-		return allVolo;
-	}
-	
-		public 	Volo getVoloByIdAndOra(String codice_id,String ora_partenza) throws SQLException, LoginFailedException{
-		PreparedStatement preparedStatement ;
-	 Volo all = null;
-		String query="SELECT * FROM volo WHERE codice_id='"+ codice_id + "'  AND ora_partenza ='"+ ora_partenza + "';";
-		preparedStatement = db.getConnessione().prepareStatement(query);
-
-		ResultSet rs = preparedStatement.executeQuery(query);
-	
-		while(rs.next()){
-		all = new Volo(rs.getString("luogo_partenza"), 
-					rs.getString("data_partenza"), 
-					rs.getString("ora_partenza"),
-					rs.getString("luogo_arrivo"),
-					rs.getString("data_arrivo"),
-					rs.getString("ora_arrivo"));
-		}
-		
-		//System.out.println(allVolo);
-		preparedStatement.close();
-		
-		return all;
-	}
-	
-	public Biglietto getBiglietto(String uname) throws SQLException, LoginFailedException{
-		PreparedStatement preparedStatement ;
-		ArrayList<Biglietto> allBiglietto = new ArrayList<>();
-
-		String query="SELECT * FROM biglietto WHERE rif_cliente='"+ uname + "';";
-		preparedStatement = db.getConnessione().prepareStatement(query);
-
-		ResultSet rs = preparedStatement.executeQuery(query);
-	
-
-		if (!rs.next()) { 		
-			throw new RicercaVoloFailedException("Ricerca Fallita");
-		}
-		Biglietto biglietto= new Biglietto(rs.getString("compagnia_aerea"), 
-				rs.getString("classe"), 
-				rs.getInt("numero_posto"),
-				rs.getFloat("costo"));
-		
-		preparedStatement.close();
-		
-		return biglietto;
-	}**/
 	//****************************** Ricerca volo Ritorno*********************************
 
 	public ArrayList<Volo> getRicercaVoloRitorno(String LuogoP, String LuogoA, String DataR) throws SQLException, LoginFailedException{
@@ -539,7 +464,7 @@ public class QueryBuilder {
 		public ArrayList<Volo> getAllVolo() throws SQLException{
 			ArrayList<Volo> allVolo= new ArrayList<>();
 			PreparedStatement preparedStatement ;
-			String query="SELECT * FROM volo;" ;
+			String query="SELECT * FROM volo ORDER BY codice_id ASC;" ;
 			preparedStatement = db.getConnessione().prepareStatement(query);
 
 
@@ -661,34 +586,28 @@ public class QueryBuilder {
 				ArrayList<Volo> allVolo= new ArrayList<>();
 				
 				PreparedStatement preparedStatement ;
-				String query= "Select rif_volo from biglietto where rif_cliente='"+ uname + "';";
+				String query= " select v.*, b.* from (biglietto b join volo v on v.codice_id=b.rif_volo) where b.rif_cliente='"+ uname + "';";
 				preparedStatement = db.getConnessione().prepareStatement(query);
 
 				ResultSet rs = preparedStatement.executeQuery(query);
   
-				if (!rs.next()) { 		
-					return null; 
+				while(rs.next()){
+					allVolo.add(new Volo(rs.getString("codice_id"),
+							rs.getString("luogo_partenza"), 
+							rs.getString("data_partenza"), 
+							rs.getString("ora_partenza"),
+							rs.getString("luogo_arrivo"),
+							rs.getString("data_arrivo"),
+							rs.getString("ora_arrivo"),
+							rs.getFloat("costo"),
+							rs.getString("intestatario"),
+							rs.getInt("costo")
+							));
+					
 				}
+				  
 				
-				String nuova= rs.getString("rif_volo");
-				
-				String query1= "Select * from volo where codice_id='"+ nuova + "';";
-				preparedStatement = db.getConnessione().prepareStatement(query1);
 			
-				ResultSet rs1 = preparedStatement.executeQuery(query1);
-								
-				while(rs1.next()){
-					allVolo.add(new Volo(rs1.getString("codice_id"),
-							rs1.getString("luogo_partenza"), 
-							rs1.getString("data_partenza"), 
-							rs1.getString("ora_partenza"),
-							rs1.getString("luogo_arrivo"),
-							rs1.getString("data_arrivo"),
-							rs1.getString("ora_arrivo"),
-							rs1.getFloat("costo")));
-				}
-				
-				preparedStatement.close();
 				return allVolo;
 			}
 			//****************************** Inserimento carrello*********************************	 
@@ -915,11 +834,7 @@ public class QueryBuilder {
 		System.out.println("Inserisci:: ");
 
 		String numeri1=in.next();
-		//String numeri2=in2.next();
-	//String numeri3=in3.next();
-		Carrello nuova2= new Carrello(numeri1);
-		//nuova.setVolo(numeri1, numeri2, null, null, null, null, null, null);
-	nuova.cancellaCarrello(nuova2);
+	 System.out.println(nuova.getVoloByUname(numeri1));
 	
 	}
 }

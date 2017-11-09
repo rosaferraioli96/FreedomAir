@@ -17,7 +17,7 @@
 </head>
 <body>
  <%@ include file="header.jsp"%>
- <div class="generalPage">
+ <div class="generalPAGE">
   <font face="sans-serif">
  
  <img class="floatright" src="immagini/immaginiPagineGenerali/info.gif" width="150" height="150" /><h3> FreedomAir Service </h3>
@@ -36,7 +36,7 @@ Il servizio di FreedomAir Service, operativo dalle 4.30 alle 23.30,
   informazioni turistiche (itinerari, collegamenti via terra e via mare).
 </font>
 </div>
-
+<br> <br> <br> <br>
  <%@ include file="footer.jsp"%>
 </body>
 </html>

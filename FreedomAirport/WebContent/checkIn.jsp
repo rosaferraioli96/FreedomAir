@@ -18,16 +18,15 @@
 	<%@ include file="header.jsp"%>
 	<br>
 	<br>
-	<div class="generalPage" >
+	<div class="generalPAGE">
 	  <font face="sans-serif">
 			<h3>Check-In</h3>
- 
 			<img class="floatright" src="immagini/immaginiPagineGenerali/checkIn.png" width="300" height="200" />Dove si effettua il check-in? L'area check-in è situata al 
 			piano terra del terminal ed ospita 55 banchi dedicati alle compagnie aeree presenti in 
 			aeroporto ed indicate sui monitor. Arrivati in aeroporto occorre verificare dai 
 			monitor il numero del banco check-in del tuo volo a cui rivolgerti per 
 			richiedere la carta d'imbarco e imbarcare bagagli. Il numero del banco compare almeno
-			 2 ore prima della partenza.. 
+			 2 ore prima della partenza.. <br>
 			<h3> Ma cos'è il Check-In? Vediamo..</h3>
 			L'accettazione è la procedura effettuata dal passeggero del trasporto aereo che consiste nel 
 			presentarsi, in aeroporto, a un banco della compagnia aerea con la quale si intende effettuare il viaggio,
@@ -37,11 +36,12 @@
 			  come bagaglio da stiva. Alla fine dell'accettazione il passeggero riceve la
 			   carta d'imbarco, sulla quale sono riportati i dati anagrafici, i dati del volo 
 			   e il posto assegnato al passeggero.
-	<br>
-		<br> 
+	<br><br>
+		<br><br> 
+		
 </font>
-			</div>
-			  
+			
+		</div>	  
 
        
 <%@ include file="footer.jsp"%>

@@ -17,7 +17,7 @@
 <body>
 	<%@ include file="header.jsp"%>
 		
-<div class="generalPage">
+<div class="pageFAQ">
 	  <font face="sans-serif">
    <h2> FAQ  <img src="immagini/immaginiPagineGenerali/question1.png"  ></h2>
 

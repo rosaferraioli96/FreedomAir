@@ -8,19 +8,20 @@
 	media="all">
 <link rel="stylesheet" href="css/nav.css" type="text/css" media="all">
 <link rel="stylesheet" href="css/login.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/cssPerPagine.css" type="text/css"
+	media="all">
 <title> Password Dimenticata </title>
 </head>
 <body>
 <%@ include file="header.jsp"%>
 <br>
 <br>
-   Inserisci :
-<br>
-<br>
+   <p> <strong> Inserisci: </strong><p>
+
 	<form action="PasswordDimenticata" method="post">
-		Email : <input type="text" name="email"> 
-		Nuova password: <input type="text" name="pass"> 
-		<input type="submit" value="invio">
+		<p > <strong>Email : <input type="text" name="email" class="input_Pass"> 
+		 Nuova password: <input type="text" name="pass" class="input_Pass"> <br>
+		<input type="submit" class="US_sub" value="invio"></strong>  </p>
 	</form>
 
 	

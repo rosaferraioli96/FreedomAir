@@ -16,7 +16,7 @@
 </head>
 <body >
 <%@ include file="header.jsp"%>
-<div class="generalPage">
+<div class="generalPAGE">
 	 <font face="sans-serif">
 	<p align="center" id="titolo">
 	<font size="20"> La qualit&aacute; di un viaggio si vede dai dettagli.</font></p><br>
@@ -40,7 +40,7 @@ aereoportuali che vigilano e curano la delicata fase della partenza .
  Costo del servizio 25&euro;. 
  	</font>
  </div>
-
+<br> <br> <br> 
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

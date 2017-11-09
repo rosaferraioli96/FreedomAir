@@ -1,6 +1,95 @@
 @CHARSET "ISO-8859-1";
 
 
+/**menu utente***/
+#mydown{
+	padding: 2px;
+	background:rgba(255, 255, 230, 0.9);
+	text-align: center;
+}
+
+#mydown a.welcome{
+	background:rgba(26, 26, 255, 0.8);
+	font-family: serif;
+    font-size: large;
+	color: white;
+	padding: 5%;
+}
+
+#mydown a{
+	font-family: serif;
+    font-size: large;
+	text-align: center;
+	padding: 6%;
+}
+
+
+#mydown a:hover, .logout:hover{
+	background:rgba(0, 134, 179, 0.8);
+	color: white;
+}
+
+#mydown a:focus, .logout:focus{
+	background:rgba(26, 26, 255, 0.8);
+	color: white;
+}
+
+.logout{
+	width: 100%;
+	height: 100%;
+    background:rgba(255, 255, 230, 0.2);
+    font-family: serif;
+    font-size: large;
+    color: black;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.btn {
+    border: none;
+    cursor: pointer;
+     background: rgba(190, 214, 243, 0.1);
+     background-image:url("../immagini/icone/user.png");
+     background-repeat: no-repeat;
+     width: 30px;
+   height: 30px;
+   margin-left: 25%; 
+}
+
+.btn:hover, .dropbtn:focus {
+}
+
+.down {
+    float: right;
+    position: relative;
+    display: inline-block;
+    
+}
+
+.down-cont {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+}
+
+.down-cont a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.down a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
 
 /*********************************** NAV SUPERIORE *********************************************/
 header{
@@ -15,31 +104,79 @@ header{
 
 /**CARRELLO E LOGIN**/
 
+.ul_nav{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	height: 100% !important;
+}
+
+.ul_nav li{
+	height: 100% !important;
+	text-align: right;
+	display: inline;
+}
+
+/*form che contiene le icone del carrello user e setting*/
+.Login{
+	height: 100% !important;
+	text-align: right;
+	margin-right: 1px; 
+}
+
 .shop-menu{
 	align-items: center;
-	width: 90%;
+	width: 88%;
+	padding-right: 3%;
+	padding-top: 2%;
 }
 
 .shop-menu ul{
 		float: right;
+	
 }
 
 .shop-menu ul li{
-  display: inline-block;
   padding-left: 10px;
- 	
+  
+ 
 }
 
 .shop-menu ul li a{
 	font-size: 18px;
+	font-family: Sans-serif;
+	padding-left: 10%;
+	text-align: right;
 }
 
-.shop-menu ul li a:HOVER{
-	color: black;
-	text-shadow: 3px 3px 4px gray;
+.login{
+	text-align: right;
 }
+
+.setting{
+	margin-bottom: 20%;
+	margin-right: 2%;
+}
+
 
 /*** fine carrello e login*****/
+
+
+/*div che contiene il logo*/
+.logo {
+	position: relative;
+	margin-left: 5px;
+}
+
+
+/*titolo accanto al logo*/
+.title {
+	float: right;
+	text-align: center;
+	/* font: bold 28px Monotype Corsiva; */
+	color: white;
+	margin-top: 13%;
+	margin-right: 11%;
+}
 
 
 /*********************************** NAV SUPERIORE-FINE ***************************************/
@@ -57,7 +194,6 @@ header{
 li > a:only-child:after { content: ''; }
 
 nav {
-  padding: 1px;
   margin-left: 10%;
   margin-right: 10%;
   background-color: #2266bb;
@@ -72,7 +208,7 @@ nav:after {
 }
 
 nav ul {
- float: right;
+  float: right;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -92,6 +228,7 @@ nav a {
   padding: 0 20px;
   color: white;
   font-size: 20px;
+  font-family: Sans-serif;
   line-height: 50px;
   text-decoration: none;
 }
@@ -138,7 +275,100 @@ nav ul ul li {
 
 /*********************************************** RESPONSE ***********************************************/
 
+
+
+/******************************** MIN-WIDTH 769 ***************************************/
+
+@media screen and (min-width : 1200px) {
+
+/*immagine logo*/
+.logo_pegaso {
+	/* height: ; */
+	width: 65%;
+}
+	
+.shop-menu ul li{ padding-left: 10px; }
+	
+.ul_nav{
+	width: 14%;
+}
+
+
+}
+/**************************** MIN-WIDTH 769-FINE **************************************/
+
+
+
+/******************************** MIN-WIDTH 769 ***************************************/
+
+@media screen and (min-width : 769px) and (max-width : 1199px){
+
+	/*immagine logo*/
+.logo_pegaso {
+	/* height: ; */
+	width: 65%;
+	padding-top: 1%;
+}
+	.shop-menu ul li{ padding-left: 20px; }
+	
+.ul_nav{
+	width: 20%;
+}
+
+
+}
+/**************************** MIN-WIDTH 769-FINE **************************************/
+
+/******************************** MAX-WIDTH 900 ***************************************/
+
+@media screen and (max-width : 900px) and (min-width : 769px){
+	
+	.shop-menu ul li{ padding-left: 10px; }
+
+.logo_pegaso {
+	/* height: ; */
+	width: 63%;
+	padding-top: 2%;
+	
+}
+	
+}
+/**************************** MAX-WIDTH 900-FINE **************************************/
+
+
 /**************************** MAX-WIDTH 768 **************************************/
+
+@media screen and (max-width : 768px) and (min-width : 451px){
+	
+.ul_nav{ width: 30%;}
+
+.ul_nav{
+	width: 25%;
+}
+
+
+}
+
+@media screen and (max-width : 768px) and (min-width : 570px){
+	.logo_pegaso {
+	/* height: ; */
+	width: 70%;
+	padding-top: 2%;
+	
+}
+}
+
+
+@media screen and (max-width : 569px) and (min-width : 450px){
+	.logo_pegaso {
+	/* height: ; */
+	width: 80%;
+	padding-top: 2%;
+	
+}
+}
+
+
 @media screen and (max-width : 768px) {
 	
 	body{margin: 0}
@@ -149,8 +379,14 @@ nav ul ul li {
 	width: 100%;
 }
 
+.shop-menu ul li{ padding-left: 3px; }
+
 .shop-menu ul li a{
 	font-size: 16px;
+}
+
+.ul_nav{
+	width: 30%;
 }
 
 /***** NAV SUPERIORE-FINE****/
@@ -283,16 +519,30 @@ nav ul ul li {
 /**************************** MAX-WIDTH 768-FINE**************************************/
 
 
+/******************************** MAX-WIDTH 450 ***************************************/
 
-/******************************** MIN-WIDTH 769 ***************************************/
-
-@media screen and (min-width : 769px) {
+@media screen and (max-width : 450px) {
 	
-	.shop-menu ul li{ padding-left: 30px; }
+	.shop-menu ul li{ padding-left: 10px; }
+	
+.ul_nav{
+	padding-top: 2%;
+	width: 40%;
+}
+
+.logo_pegaso {
+	/* height: ; */
+	width: 80%;
+	padding-top: 4%;
 	
 }
-/**************************** MIN-WIDTH 769-FINE **************************************/
 
+
+
+}
+/**************************** MAX-WIDTH 450-FINE **************************************/
+
+/******************************** MAX-WIDTH 330 ***************************************/
 @media screen and (max-width : 330px) {
 
 	nav ul li { 
@@ -300,3 +550,4 @@ nav ul ul li {
 	}
 
 }
+/**************************** MAX-WIDTH 330-FINE **************************************/

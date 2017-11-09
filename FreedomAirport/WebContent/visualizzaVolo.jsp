@@ -79,8 +79,8 @@
 	</form>
 	<%  } %>
 <%  }else{ %>
-	<% ArrayList<Volo> voloAndata = (ArrayList<Volo>) session.getAttribute("voloAndata"); 
-        for(Volo v : voloAndata){
+	<% ArrayList<Volo> voloRitorno = (ArrayList<Volo>) session.getAttribute("voloRitorno"); 
+        for(Volo v : voloRitorno){
      %>
       <b> Codice Identificativo del volo: <%=v.getCodice_id()%></b>
 	<b> Luogo Partenza: <%=v.getLuogo_partenza()%> ,</b>

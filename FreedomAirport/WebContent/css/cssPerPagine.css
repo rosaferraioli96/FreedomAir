@@ -8,9 +8,56 @@ h4{
 }
 
 body{
+	
    background-image: linear-gradient(#ffffff 0%,#b3c4ff 100%);
 }
+p{
+	text-align: center;
+	font-family: sans-serif;
+	color:#2266bb;
+	
+	
+}
+input[type=text].input_Pass  {
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.8); /*colore di sfondo*/
+	color:#000080; /*colore del testo*/
+	font: 18px Arial, Helvetica, sans-serif;
+	padding: 8px 10px;
+	margin-bottom: 3%;
+	margin-top: 1%;
+	height: 25px;
+	width: 20% !important;
+	font-family: sans-serif;
+	border: 2px solid #000080; /*colore bordo*/
+	border-radius: 5px;
+	/* border: 1px solid #ccc;
+	box-sizing: border-box; */
+}
+.US_sub{
+  padding: 8px 15px;
+  font-size: 19px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #343a65;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 2px #b4b4b4;
+  margin-bottom:20px;
+  
+}
 
+.US_sub:hover{
+	background-color: #7ca3b6;
+}
+
+.US_sub:active{
+  background-color: #76c0c9;
+  box-shadow: 0 3px 4px #b4b4b4;
+  transform: translateY(4px);
+}
 img.floatright {
 	float: right;
 
@@ -47,14 +94,28 @@ img.floatleft {
     border-radius: 20px;
 	margin-right: 2%;
 }
-.generalPage {
+.generalPAGE {
    position:absolute; 
-   top:150px; 
-
+   top:250px; 
+ 
     align:right;
 	margin:0 10%;
 }
 
+.pageFAQ{
+	 position:absolute; 
+   top:150px; 
+ 
+    align:right;
+	margin:0 10%;
+}
+.contatti {
+   position:static; 
+   top:150px; 
+    text-align:center;
+    
+	margin:7% 10%;
+}
 
 #titolo{
 		color: #2266bb;
@@ -62,26 +123,30 @@ img.floatleft {
 
 img.parcheggio {
 	float: right;
-
- 
 }
-
 
 /*********************************************** RESPONSE ***********************************************/
 
 /**************************** MAX-WIDTH 768 **************************************/
 @media screen and (max-width : 768px) {
-.generalPage {
-    
+
+	.generalPAGE {
+  position: relative; 
+   top:0px; 
     align:right;
 	margin:0 10%;
-	height: 250px;
+	}
+	.pageFAQ {
+  position: relative; 
+   top:0px; 
+    align:right;
+	margin:0 10%;
+	}
+.contatti{
+	 position: relative; 
+   top:0px; 
+	margin:0 35%;
 }
-footer{margin: 100%; margin-top: 50%; width: 100%;   height: 100%; }
-
-	
-/** NAV INFERIORE **/
-
 
 }
 /**************************** MAX-WIDTH 768-FINE**************************************/
@@ -91,15 +156,9 @@ footer{margin: 100%; margin-top: 50%; width: 100%;   height: 100%; }
 /******************************** MIN-WIDTH 769 ***************************************/
 
 @media screen and (min-width : 769px) {
-	
-	.generalPage {
-   position:absolute; 
-   top:150px; 
-  
-    align:right;
-	margin:0 10%;
-}
 
+	
+}
 /**************************** MIN-WIDTH 769-FINE **************************************/
 
 @media screen and (max-width : 330px) {
@@ -108,6 +167,4 @@ footer{margin: 100%; margin-top: 50%; width: 100%;   height: 100%; }
  	 display: block;
 	}
 
-
-
-
+}
