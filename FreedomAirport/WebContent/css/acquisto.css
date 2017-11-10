@@ -1,0 +1,354 @@
+@charset "ISO-8859-1";
+
+
+.input1, input[type="date"] {
+  outline: none; /*toglie il bordo blu intorno*/
+ background: white;
+ border: 2px solid #343a65; /*colore bordo*/
+ font: 18px Arial, Helvetica, sans-serif;
+ color:black;
+ padding:8px 4px;
+ height: 20px;
+ width:82% !important;
+ border-radius: 5px;
+
+ /* appearance: none;
+    -webkit-appearance: none;
+    display: inline-block !important;
+    visibility: visible !important;*/
+}
+
+/* rimuove le doppie frecce */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+  color: rgba(0, 0, 0, 0);
+    opacity: 1;
+}
+
+
+/* Calendario immagine */
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    float: right;
+    background: url("../immagini/icone/calendar2.png") no-repeat;
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+}
+
+.Titol{
+ color:#678FFE;
+ text-align: center;
+ margin-top: 5%; 
+}
+
+
+td.padd{
+ text-align: right;
+ padding-left: 50%;
+ padding-top: 3%;
+}
+
+.invio{
+ background: linear-gradient(#913b58, #cb8099, #913b58);
+ border: thin;
+ /*cerca*/
+ color: white;
+ text-align: center;
+ font-size: 20px;
+ font-weight: bold;
+ /*fine cerca*/
+ text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+    margin-left: 50%;
+}
+
+.invio:hover{
+ background: linear-gradient(#cb8099, #913b58, #cb8099);
+ box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24),0 10px 40px 0 rgba(0,0,0,0.19);
+}
+
+
+
+#keywords thead {
+  cursor: pointer;
+  background-color: #6363D9;
+}
+
+#keywords thead tr th { 
+  font-weight: bold;
+  text-align: center;
+}
+
+
+#keywords thead tr th span { 
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+
+
+#keywords tbody tr { 
+  color: black;
+}
+
+th span{
+ color: white;
+}
+
+#keywords tbody tr td {
+  text-align: center;
+}
+
+
+#keywords tbody tr:nth-child(even){background-color:#ead4f7;}
+
+
+#keywords tbody tr td.lalign {
+  text-align: center;
+}
+
+
+
+/*********************************************** RESPONSE ***********************************************/
+
+/******************************** MIN-WIDTH 1100 ***************************************/
+
+@media screen and (min-width : 1100px) {
+
+.invio{
+ padding: 15px;
+ }
+ 
+ 
+thead, tr, th, td{
+  font-size: 20px;
+}
+
+
+#keywords {
+  margin: 5% 10%;
+  font-size: 20px;
+  width: 80%;
+}
+ 
+#keywords thead tr th { 
+  padding: 15px 10px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 10px 9px;
+}
+
+
+}
+
+
+/*************tabella form**************/
+
+.tb_ins{
+ margin-left: 10%;
+ margin-right: 10%;
+}
+.myTable{
+ text-align: center;
+ padding-bottom: 2%;
+}
+
+
+
+.myTable td{
+ text-align: left;
+ 
+}
+
+
+.tabIns .col1{
+ text-align: right;
+ padding-left: 0px;'
+}
+
+
+/*testo delle form*/
+
+.AD_text{
+ color: #343a65;
+ font-weight: bold; 
+ font-size: 19px;
+ font-family: serif;
+ 
+ margin-bottom: 1%;
+ margin-right: 5px;
+ 
+}
+
+.top{
+ padding-top: 6%;
+ text-align: center;
+}
+
+/*div degli input*/
+.insert{
+ text-align: center;
+ margin-bottom: 6%;
+ /* margin-left: 20%; */
+}
+
+
+/************** stile input *****************/
+
+.insert input[type=text] {
+  outline: none; /*toglie il bordo blu intorno*/
+ background: rgba(255, 255, 255, 0.8); /*colore di sfondo*/
+ /*border:1px solid aqua; /*bordo*/
+ color: black; /*colore del testo*/
+ font: 20px Arial, Helvetica, sans-serif;
+ padding-bottom: 8px;
+ padding-top: 8px;
+ padding-left: 10px;
+ height: 22px;
+ border: 2px solid #343a65; /*colore bordo*/
+ border-radius: 5px;
+ 
+}
+
+#tipo_carta{
+  outline: none; /*toglie il bordo blu intorno*/
+ background: rgba(255, 255, 255, 0.8); /*colore di sfondo*/
+ /*border:1px solid aqua; /*bordo*/
+ color: black; /*colore del testo*/
+ font: 20px Arial, Helvetica, sans-serif;
+ padding-bottom: 8px;
+ padding-top: 8px;
+ padding-left: 10px;
+ margin: 0px 5px;
+ border: 2px solid #343a65; /*colore bordo*/
+ border-radius: 5px;
+}
+
+
+.insert input[type=text]:FOCUS, #tipo_carta:focus  {
+ outline: none; /*toglie il bordo blu intorno*/
+ border: 2px solid #7ca3b6; /*bordo colore qu
+ ando selezionato*/
+ box-shadow: inset 2px 2px 8px #d7d7d7;
+ border-collapse: collapse;
+ 
+}
+
+option{
+ background-color: #7ca3b6;
+ font-size: 16px;
+}
+
+/**input submit**/
+.but_click{
+  padding: 8px 15px;
+  font-size: 19px;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #343a65;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 5px 2px #b4b4b4;
+}
+
+.but_click:hover{
+ background-color: #7ca3b6;
+}
+
+.but_click:active{
+  background-color: #76c0c9;
+  box-shadow: 0 3px 4px #b4b4b4;
+  transform: translateY(4px);
+}
+
+.insert input[type=text], #tipo_carta{
+ margin: 2% 5px;
+} 
+
+/******************************** MAX-WIDTH 1099 AND MIN-WIDTH 769*********************************/
+
+@media screen and (max-width : 1099px) and (min-width : 769px){
+ 
+.insert input[type=text], #tipo_carta{
+ margin: 2% 5px;
+}
+
+thead, tr, th, td{
+  font-size: 16px;
+}
+
+
+#keywords {
+  margin: 5% 10%;
+  font-size: 20px;
+  width: 78%;
+}
+ 
+#keywords thead tr th { 
+  padding: 16px 8px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 10px 8px;
+}
+
+}
+
+
+/******************************** MAX-WIDTH 768 AND MIN-WIDTH 420*********************************/
+
+@media screen and (max-width : 768px) and (min-width : 420px){
+ 
+thead, tr, th, td{
+  font-size: 14px;
+}
+
+.scr{
+ overflow: scroll;
+}
+
+#keywords {
+  
+  margin: 5% 0%;
+  font-size: 16px;
+  width: 100%;
+}
+ 
+#keywords thead tr th { 
+  padding: 14px 6px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 8px 8px;
+}
+
+}
+
+
+/******************************** MIN-WIDTH 420 ***************************************/
+
+@media screen and (min-width : 420px) and(max-width : 620px) {
+ .invio{
+ padding: 4%;
+ }
+ 
+}

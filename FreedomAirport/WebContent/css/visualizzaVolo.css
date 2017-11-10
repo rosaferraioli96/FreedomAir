@@ -1,0 +1,236 @@
+@charset "ISO-8859-1";
+
+body{
+	background-image: url(../immagini/sfondo/volo3.png);
+	background-repeat: repeat-y;
+	
+}
+.Titol{
+ color:#678FFE;
+ text-align: center;
+ margin-top: 5%; 
+}
+
+#riprova{
+ font-family: sans-serif;
+ color: #e10c00;
+ text-align: center;
+ margin-top: 5%;
+}
+
+td.in_b{
+ background-color: white;
+ border-spacing: 0;
+ text-align: center;
+ 
+}
+
+
+
+/*button_cerca begin*/
+.button_cerca{
+ float: right;
+ background: linear-gradient(#2266bb, #4d8edf, #2266bb);
+ border: thin;
+ /*cerca*/
+ color: white;
+ text-align: center;
+ /*fine cerca*/
+ text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 7px;
+    text-align: center;
+ 
+}
+
+.button_cerca:hover{
+ box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24),0 10px 40px 0 rgba(0,0,0,0.19);
+}
+
+thead, tr, th, td{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+#table {
+  display: table;
+   width: 100%; 
+   background: #490D36;
+   margin: 0;
+   box-sizing: border-box;
+
+  }
+  
+  
+  
+
+#keywords thead {
+  cursor: pointer;
+  background-color: #6363D9;
+}
+
+#keywords thead tr th { 
+  font-weight: bold;
+  text-align: center;
+}
+
+
+#keywords thead tr th span { 
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+
+
+#keywords tbody tr { 
+  color: black;
+  background-color: white;
+}
+
+th span{
+ color: white;
+}
+
+#keywords tbody tr td {
+  text-align: center;
+}
+
+
+#keywords tbody tr:nth-child(even){background-color:#ead4f7;}
+
+
+#keywords tbody tr td.lalign {
+  text-align: center;
+}
+
+
+
+/*********************************************** RESPONSE ***********************************************/
+
+/******************************** MIN-WIDTH 1200 ***************************************/
+
+@media screen and (min-width : 1100px) {
+
+ 
+.button_cerca{
+ margin-left: 2%;
+ /*cerca*/
+ font-size: 20px;
+ padding: 10px 15px;
+ /*fine cerca*/
+ 
+}
+ 
+thead, tr, th, td{
+  font-size: 20px;
+}
+
+
+#keywords {
+  margin: 5% 10%;
+  font-size: 20px;
+  width: 80%;
+}
+ 
+#keywords thead tr th { 
+  padding: 20px 10px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 10px 9px;
+}
+
+
+}
+
+/******************************** MIN-WIDTH 1200 ***************************************/
+
+@media screen and (max-width : 1099px) and (min-width : 769px){
+ 
+ 
+.button_cerca{
+ margin-left: 2%;
+ /*cerca*/
+ font-size: 15px;
+ padding: 8px 10px;
+ /*fine cerca*/
+ 
+}
+
+thead, tr, th, td{
+  font-size: 16px;
+}
+
+
+#keywords {
+  margin: 5% 10%;
+  font-size: 20px;
+  width: 78%;
+}
+ 
+#keywords thead tr th { 
+  padding: 16px 8px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 10px 8px;
+}
+
+}
+
+
+
+@media screen and (max-width : 768px) and (min-width : 420px){
+ 
+ 
+.button_cerca{
+ margin-left: 2%;
+ /*cerca*/
+ font-size: 13px;
+ padding: 8px 8px;
+ /*fine cerca*/
+ 
+}
+
+thead, tr, th, td{
+  font-size: 14px;
+}
+
+.scr{
+ overflow: scroll;
+}
+
+#keywords {
+  
+  margin: 5% 0%;
+  font-size: 16px;
+  width: 100%;
+}
+ 
+#keywords thead tr th { 
+  padding: 14px 6px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 8px 8px;
+}
+
+}

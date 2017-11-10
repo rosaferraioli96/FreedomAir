@@ -100,7 +100,6 @@ function invio() {
 		},
 		success : function(result) {
 			if (parseInt(result['result'])) {
-				alert("Operazione eseguita con successo!!!");
 				 window.location.replace(encodeURIComponent("index.jsp"));
 			} else {
 				alert("Si è verificato il seguente errore: "+ result['description']);

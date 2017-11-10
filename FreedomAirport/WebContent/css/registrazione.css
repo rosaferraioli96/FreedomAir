@@ -28,6 +28,7 @@ body{
 #paese{
 	background: rgba(255, 255, 255, 0.8);
 	padding: 8px 10px;
+		color:#b30047; 
 	margin-bottom: 3%;
 	margin-top: 1%;
 	height: 40px;
@@ -109,7 +110,7 @@ body{
 input[type=date].input_Data{
 		display: inline-block;
 	background: rgba(255, 255, 255, 0.8); /*colore di sfondo*/
-	color:#2266bb; /*colore del testo*/
+	color:#b30047; /*colore del testo*/
 	font: 18px Arial, Helvetica, sans-serif;
 	padding: 8px 10px;
 	margin-bottom: 3%;
@@ -124,7 +125,7 @@ input[type=date].input_Data{
 input[type=text].input_reg, input[type=password], input[type=number]  {
 	display: inline-block;
 	background: rgba(255, 255, 255, 0.8); /*colore di sfondo*/
-	color:#2266bb; /*colore del testo*/
+	color:#b30047; /*colore del testo*/
 	font: 18px Arial, Helvetica, sans-serif;
 	padding: 8px 10px;
 	margin-bottom: 3%;

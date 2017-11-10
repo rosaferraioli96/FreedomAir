@@ -40,6 +40,5 @@
 			var map = new google.maps.Map(mapCanvas, mapOptions);
 		}
 	</script>
-
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC1__UC2FCADphD34gsZ4mhynsRKVZ-44&callback=myMap"></script>
 </footer>

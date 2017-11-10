@@ -9,7 +9,12 @@ h4{
 
 body{
 	
-   background-image: linear-gradient(#ffffff 0%,#b3c4ff 100%);
+	
+	background-image: url(../immagini/sfondo/image5.jpg);
+	background-repeat: initial;
+	
+
+
 }
 p{
 	text-align: center;
@@ -97,7 +102,7 @@ img.floatleft {
 .generalPAGE {
    position:absolute; 
    top:250px; 
- 
+   color:#000080;
     align:right;
 	margin:0 10%;
 }
@@ -105,11 +110,12 @@ img.floatleft {
 .pageFAQ{
 	 position:absolute; 
    top:150px; 
- 
+ color:#000080;
     align:right;
 	margin:0 10%;
 }
 .contatti {
+	color:#000080;
    position:static; 
    top:150px; 
     text-align:center;

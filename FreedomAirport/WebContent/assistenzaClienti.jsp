@@ -22,18 +22,20 @@
  
  <img class="floatright" src="immagini/immaginiPagineGenerali/info.gif" width="150" height="150" /><h3> FreedomAir Service </h3>
 <br>
-
-Puoi chiedere informazioni: 
+<strong>
+Puoi chiedere informazioni: </strong>
  	<ul >
+ 	<strong>
  	<li>  <img src="immagini/immaginiPagineGenerali/half-circle1.png"  >contattando il numero  081-7896259  </li>
  <li> <img src="immagini/immaginiPagineGenerali/half-circle1.png"  >scrivendo un'email a freedom_service@gmail.it</li>
+ </strong>
 </ul>
 
 
-
+<strong>
 Il servizio di FreedomAir Service, operativo dalle 4.30 alle 23.30, 
  fornisce informazioni di tipo aeroportuale (arrivi, partenze, collegamenti nazionali e internazionali),
-  informazioni turistiche (itinerari, collegamenti via terra e via mare).
+  informazioni turistiche (itinerari, collegamenti via terra e via mare).</strong>
 </font>
 </div>
 <br> <br> <br> <br>

@@ -1,7 +1,6 @@
 @CHARSET "ISO-8859-1";
 @charset "ISO-8859-1";
 /***************************Calendario********************/
-
 .input:FOCUS, input[type=date]:FOCUS {
 	outline: none; /*toglie il bordo blu intorno*/
 	border: 2px solid #3abdef; /*bordo colore quando selezionato*/

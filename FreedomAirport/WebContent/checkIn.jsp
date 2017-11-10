@@ -20,7 +20,8 @@
 	<br>
 	<div class="generalPAGE">
 	  <font face="sans-serif">
-			<h3>Check-In</h3>
+			<h3> <strong>Check-In</strong></h3>
+			<strong>
 			<img class="floatright" src="immagini/immaginiPagineGenerali/checkIn.png" width="300" height="200" />Dove si effettua il check-in? L'area check-in è situata al 
 			piano terra del terminal ed ospita 55 banchi dedicati alle compagnie aeree presenti in 
 			aeroporto ed indicate sui monitor. Arrivati in aeroporto occorre verificare dai 
@@ -35,7 +36,7 @@
 			 che non può portare con sé in cabina come bagaglio a mano e che verrà quindi imbarcato
 			  come bagaglio da stiva. Alla fine dell'accettazione il passeggero riceve la
 			   carta d'imbarco, sulla quale sono riportati i dati anagrafici, i dati del volo 
-			   e il posto assegnato al passeggero.
+			   e il posto assegnato al passeggero.</strong>
 	<br><br>
 		<br><br> 
 		

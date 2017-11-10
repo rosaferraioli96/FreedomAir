@@ -1,0 +1,202 @@
+@charset "ISO-8859-1";
+
+
+.elc{
+ background: linear-gradient(#913b58, #cb8099, #913b58);
+ border: thin;
+ /*cerca*/
+ color: white;
+ text-align: center;
+ font-size: 16px;
+ font-weight: bold;
+ /*fine cerca*/
+ text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.tit{
+ color:#913b58;
+ text-align: center;
+}
+
+.carr{
+ margin-left: 10%;
+ margin-right: 10%;
+ margin-top: 5%; 
+}
+
+.invio{
+ background: linear-gradient(#913b58, #cb8099, #913b58);
+ border: thin;
+ /*cerca*/
+ color: white;
+ text-align: center;
+ font-size: 20px;
+ font-weight: bold;
+ /*fine cerca*/
+ text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 30px;
+    text-align: center;
+    margin-left: 50%;
+}
+
+.invio:hover{
+ background: linear-gradient(#cb8099, #913b58, #cb8099);
+ box-shadow: 0 10px 15px 0 rgba(0,0,0,0.24),0 10px 40px 0 rgba(0,0,0,0.19);
+}
+
+
+
+#keywords thead {
+  cursor: pointer;
+  background-color: #6363D9;
+}
+
+#keywords thead tr th { 
+  font-weight: bold;
+  text-align: center;
+}
+
+
+#keywords thead tr th span { 
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+
+
+#keywords tbody tr { 
+  color: black;
+}
+
+th span{
+ color: white;
+}
+
+#keywords tbody tr td {
+  text-align: center;
+}
+
+
+#keywords tbody tr:nth-child(even){background-color:#ead4f7;}
+
+
+#keywords tbody tr td.lalign {
+  text-align: center;
+}
+
+
+
+/*********************************************** RESPONSE ***********************************************/
+
+/******************************** MIN-WIDTH 1100 ***************************************/
+
+@media screen and (min-width : 1100px) {
+
+.invio{
+ padding: 15px;
+ }
+ 
+ 
+thead, tr, th, td{
+  font-size: 20px;
+}
+
+
+#keywords {
+  margin: 5% 10%;
+  font-size: 20px;
+  width: 80%;
+}
+ 
+#keywords thead tr th { 
+  padding: 20px 10px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 10px 9px;
+}
+
+
+}
+
+
+
+
+/******************************** MAX-WIDTH 1099 AND MIN-WIDTH 769*********************************/
+
+@media screen and (max-width : 1099px) and (min-width : 769px){
+ 
+
+
+thead, tr, th, td{
+  font-size: 16px;
+}
+
+
+#keywords {
+  margin: 5% 10%;
+  font-size: 20px;
+  width: 78%;
+}
+ 
+#keywords thead tr th { 
+  padding: 16px 8px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 10px 8px;
+}
+
+}
+
+
+/******************************** MAX-WIDTH 768 AND MIN-WIDTH 420*********************************/
+
+@media screen and (max-width : 768px) and (min-width : 420px){
+ 
+thead, tr, th, td{
+  font-size: 14px;
+}
+
+.scr{
+ overflow: scroll;
+}
+
+#keywords {
+  
+  margin: 5% 0%;
+  font-size: 16px;
+  width: 100%;
+}
+ 
+#keywords thead tr th { 
+  padding: 14px 6px;
+}
+ 
+ 
+#keywords tbody tr td {
+  text-align: center;
+  padding: 8px 8px;
+}
+
+}
+
+
+/******************************** MIN-WIDTH 420 ***************************************/
+
+@media screen and (min-width : 420px) and(max-width : 620px) {
+ .invio{
+ padding: 4%;
+ }
+ 
+}

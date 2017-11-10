@@ -16,9 +16,9 @@
 	<%@ include file="header.jsp"%>
 	<div class="generalPAGE">
 		  <font face="sans-serif">
-		<p><h3>Peso e misura del bagaglio <img src="immagini/immaginiPagineGenerali/briefcase.png"  ><br></h3>
-Peso e dimensioni dei bagagli a mano e da stiva variano secondo la compagnia aerea, la destinazione e la classe di prenotazione. Ti suggeriamo di consultare la compagnia aerea con cui viaggerai o l'agenzia di viaggio per le necessarie indicazioni. Nel caso in cui il bagaglio superi i limiti stabiliti, ti potrebbe essere richiesto di pagare un costo aggiuntivo.
-Ti suggeriamo di apporre sempre sul tuo bagaglio una etichetta con i seguenti dati: nome, cognome, indirizzo, numero di telefono e, prima di assicurare il tuo bagaglio con lucchetti e cinghie di sicurezza informati se la compagnia prevede l'apertura del bagaglio nelle procedure di controllo.
+		<p><h3><strong>Peso e misura del bagaglio <img src="immagini/immaginiPagineGenerali/briefcase.png"  > </strong><br></h3>
+<strong>Peso e dimensioni dei bagagli a mano e da stiva variano secondo la compagnia aerea, la destinazione e la classe di prenotazione. Ti suggeriamo di consultare la compagnia aerea con cui viaggerai o l'agenzia di viaggio per le necessarie indicazioni. Nel caso in cui il bagaglio superi i limiti stabiliti, ti potrebbe essere richiesto di pagare un costo aggiuntivo.
+Ti suggeriamo di apporre sempre sul tuo bagaglio una etichetta con i seguenti dati: nome, cognome, indirizzo, numero di telefono e, prima di assicurare il tuo bagaglio con lucchetti e cinghie di sicurezza informati se la compagnia prevede l'apertura del bagaglio nelle procedure di controllo.</strong>
 </font>
 
 </div>

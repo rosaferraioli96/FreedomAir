@@ -117,7 +117,7 @@
 		<input type="checkbox" id="drop-1" />
 
 		<ul class="dropdown-content">
-			<li class="inf"><a href="#">Voli</a></li>
+			<li class="inf"><a href="voli.jsp">Voli</a></li>
 			<li class="inf"><a href="checkIn.jsp">Check-in</a></li>
 			<li class="inf"><a href="bagaglio.jsp">Bagagli</a></li>
 		</ul>
@@ -265,14 +265,13 @@ window.onclick = function(event) {
 				},
 				success : function(result) {
 					if (parseInt(result)) {
-						alert("Operazione eseguita con successo!!!");
 						location.reload();
 					} else {
-						alert("Si è verificato un errore!!");
+						alert("Username o Password Errati!");
 					}
 				},
 				error : function() {
-					alert("Si è verificato un errore!!");
+					alert("Username o Password Errati!");
 				}
 			});
 			return false;

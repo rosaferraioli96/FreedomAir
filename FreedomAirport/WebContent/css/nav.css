@@ -497,7 +497,7 @@ nav ul ul .toggle,  nav ul ul a { padding: 0 40px; }
 nav a:hover,  { background-color: #000000; }
 
 /**riferito a volo, check-in, bagagli**/
-nav ul li ul li .toggle,  nav ul ul a { background-color: yellow; }
+nav ul li ul li .toggle,  nav ul ul a { background-color: #6699ff; }
 
 nav ul ul {
   float: none;
