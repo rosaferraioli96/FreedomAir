@@ -68,18 +68,18 @@
    <table class="myTable">
    <tr class="insert">
     <td class="AD_text">Codice id volo:</td>
-    <td class="US_input"><input type="text" name="codice_id" /></td>
+    <td class="US_input"><input type="text" name="codice_id" required maxlength="10"/></td>
  </tr>
  
  <tr class="insert">
     <td class="AD_text">Intestatario biglietto:</td>
-    <td class="US_input"><input type="text" name="nome_intestatario" /></td>
+    <td class="US_input"><input type="text" name="nome_intestatario" required maxlength="14"/></td>
  </tr>
  
  <tr class="insert">
     <td class="AD_text">Tipo carta:</td>
     <td class="US_input">
-     <select name="tipo_carta" id="tipo_carta">
+     <select name="tipo_carta" id="tipo_carta" required maxlength="18">
       <option value="MasterCard">Master Card</option>
       <option value="Visa">Visa</option>
       <option value="Postepay">Postepay</option>
@@ -90,26 +90,26 @@
  
  <tr class="insert">
     <td class="AD_text">Numero carta:</td>
-    <td class="US_input"><input type="text" name="numero_carta" /></td>
+    <td class="US_input"><input type="text" name="numero_carta" required  maxlength="7" placeholder="Inserire min 4 numeri" /></td>
  </tr>
  
  <tr class="insert">
     <td class="AD_text">Nominativo intestatario carta:</td>
-    <td class="US_input"><input type="text" name="nominativo" /></td>
+    <td class="US_input"><input type="text" name="nominativo" required maxlength="15"/></td>
  </tr>
  
  <tr class="insert">
     <td class="AD_text">Validità carta:</td>
-    <td class="US_input"><input type="date" class="input1" name="DataP" value="2017-11-10"
-        onblur="if(this.value=='') this.value='2017-11-10'"
-        onFocus="if(this.value =='2017-11-10' ) this.value=''"></td>
+    <td class="US_input"><input type="date" class="input1" name="DataP" value="2018-11-10"
+        onblur="if(this.value=='') this.value='2018-11-10'"
+        onFocus="if(this.value =='2018-11-10' ) this.value=''" required></td>
     
  </tr>
     
      <tr class="insert">
      <td></td>
     
-     <td class="padd"><input id="carrello" type="submit" value="invio" class="but_click"> </td>
+     <td class="padd"><input id="carrello" type="submit" value="invio" class="but_click" > </td>
        <td></td>
        
        </tr>  
@@ -119,6 +119,7 @@
           <input type="hidden" name="numero_posto" value="<%=posto %>" />
  </table>
  </div>
+
  </form>
  <%}}else{
 	 session.setAttribute("prova", null);%>
@@ -126,6 +127,21 @@
    <H1 class="Titol">  Il tuo volo è stato acquistato correttamente</H1>
    
 <% } %>
+    
+       <% String variabilePerCodice = (String) session.getAttribute("variabilePerCodice"); 
+         if(variabilePerCodice == "false"){ %>
+         <script>  alert("Codice Identificativo non presente nei nostri database");
+         </script>
+         
+<%} %>
+ <% String variabileNumero = (String) session.getAttribute("variabileNumero"); 
+         if(variabileNumero == "false"){ %>
+         <script>  alert("Caratteri non validi per numero carta");
+         
+         </script>
+         
+<%   session.setAttribute("variabileNumero", "true");} %>
+
    <%@ include file="footer.jsp"%>
 </body>
 </html>

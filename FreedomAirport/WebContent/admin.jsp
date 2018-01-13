@@ -20,187 +20,6 @@
 
 	<section class="menu_admin">
 
-
-
-	<button class="accordion">Info Utente</button>
-
-	<!-- Pannello -->
-	<div class="panel">
-		<table class="myTable tabIns">
-
-			<!-- Visualizza nome-->
-			<%
-				String nomeAdmin = (String) session.getAttribute("nomeUtente");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Nome: <%=nomeAdmin%></td>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuovo Nome:</td>
-					<td class="US_input"><input type="text" name="nomeUtente"></td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-			<!-- Visualizza Cognome-->
-			<%
-				String cognomeAdmin = (String) session.getAttribute("cognomeUtente");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Cognome: <%=cognomeAdmin%>
-				</td>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuovo Cognome:</td>
-					<td class="US_input"><input type="text" name="cognomeUtente">
-					</td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-			<!--  Visualizza Password-->
-			<%
-				String passwordUtente = (String) session.getAttribute("passwordUtente");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Password: ***********</td>
-				<%-- <%= passwordUtente %> --%>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuova Password:</td>
-					<td class="US_input"><input type="text" name="password">
-					</td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-
-
-			<!--  Visualizza Codice Fiscale-->
-			<%
-				String codiceFiscale = (String) session.getAttribute("codiceFiscale");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Codice Fiscale: <%=codiceFiscale%></td>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuovo Codice Fiscale:</td>
-					<td class="US_input"><input type="text" name="codiceFiscale"></td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-
-
-			<!--  Visualizza Carta Identita-->
-			<%
-				String cartaIdentita = (String) session.getAttribute("cartaIdentita");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Carta Identita: <%=cartaIdentita%></td>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuova Carta Identità:</td>
-					<td class="US_input"><input type="text" name="cartaIdentita">
-					</td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-
-
-			<!--  Visualizza passaporto-->
-			<%
-				String passaporto = (String) session.getAttribute("passaporto");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Passaporto: <%=passaporto%></td>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuovo Passaporto:</td>
-					<td class="US_input"><input type="text" name="passaporto">
-					</td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-
-
-			<!--  Visualizza Email-->
-			<%
-				String email = (String) session.getAttribute("email");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Email: <%=email%></td>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuova Email:</td>
-					<td class="US_input"><input type="text" name="email">
-					</td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-
-			<!--  Visualizza numero_telefono-->
-			<%
-				String numero_telefono = (String) session.getAttribute("numero_telefono");
-			%>
-			<tr>
-				<td></td>
-				<td class="AD_text top">Numero Telefono: <%=numero_telefono%></td>
-			</tr>
-
-			<!-- Form che serve alla modifica dei dati utenti-->
-			<form action="ModificaDatiAdmin" method="post">
-				<tr class="insert">
-					<td class="AD_text">Nuovo Telefono:</td>
-					<td class="US_input"><input type="text" name="numero_telefono">
-					</td>
-					<td class="padd"><input type="submit" value="invio"
-						class="US_sub"></td>
-				</tr>
-			</form>
-
-		</table>
-
-	</div>	<!-- end div panel--> 
-	
 	<!-- Inserimento nuovo volo -->
 	<button class="accordion">Inserimento Nuovo Volo</button>
 
@@ -214,13 +33,13 @@
 				<tr class="insert">
 					<td class="AD_text col1">Codice ID volo:</td>
 					<td class="US_input col2"><input type="text" class="ins_ID"
-						placeholder="Codice ID" name="codice_id" id="cod_id"></td>
+						placeholder="Codice ID" name="codice_id" id="cod_id" required maxlength="10"></td>
 				</tr>
 
 				<tr class="insert">
 					<td class="AD_text col1">Luogo partenza:</td>
 					<td class="US_input col2"><input type="text" class="ins_LP"
-						placeholder="Luogo partenza" name="luogo_partenza" id="luogo_p"></td>
+						placeholder="Luogo partenza" name="luogo_partenza" id="luogo_p" required maxlength="30"></td>
 				</tr>
 
 				<tr class="insert">
@@ -228,20 +47,20 @@
 					<td class="US_input col2"><input type="date" class="ins_ID  inputCalendar"
 						placeholder="2017-09-30" name="data_partenza" id="data_p" value="2017-11-10"
 								onblur="if(this.value=='') this.value='2017-11-10'"
-								onFocus="if(this.value =='2017-11-10' ) this.value=''"></td>
+								onFocus="if(this.value =='2017-11-10' ) this.value=''" required></td>
 				</tr>
 
 
 				<tr class="insert">
 					<td class="AD_text col1">Ora partenza:</td>
 					<td class="US_input col2"><input type="text" class="ins_ID"
-						placeholder="10:20:00" name="ora_partenza" id="ora_p"></td>
+						placeholder="10:20:00" name="ora_partenza" id="ora_p" required maxlength="30"></td>
 				</tr>
 
 				<tr class="insert">
 					<td class="AD_text col1">Luogo arrivo:</td>
 					<td class="US_input col2"><input type="text" class="ins_LA"
-						placeholder="Luogo arrivo" name="luogo_arrivo" id="luogo_a">
+						placeholder="Luogo arrivo" name="luogo_arrivo" id="luogo_a" required maxlength="30">
 					</td>
 				</tr>
 
@@ -250,13 +69,13 @@
 					<td class="US_input col2"><input type="date" class="ins_ID inputCalendar"
 						placeholder="2017-09-30" name="data_arrivo" id="data_a" value="2017-11-10"
 								onblur="if(this.value=='') this.value='2017-11-10'"
-								onFocus="if(this.value =='2017-11-10' ) this.value=''"></td>
+								onFocus="if(this.value =='2017-11-10' ) this.value=''" required></td>
 				</tr>
 
 				<tr class="insert">
 					<td class="AD_text col1">Ora arrivo:</td>
 					<td class="US_input col2"><input type="text" class="ins_ID"
-						placeholder="10:20:00" name="ora_arrivo" id="ora_a"></td>
+						placeholder="10:20:00" name="ora_arrivo" id="ora_a" required maxlength="30"> </td>
 				</tr>
 
 				<tr class="insert">
@@ -264,12 +83,11 @@
 					<td class="US_input col2"><input type="text" class="ins_costo"
 						name="costo" id="costo"></td>
 					<td class="col3 basso_dest"><input type="submit" value="invio"
-						id="submit_insVolo" class="US_sub basso_dest"></td>
+						id="submit_insVolo" class="US_sub basso_dest" required maxlength="10"></td>
 				</tr>
 			</form>
 
-		</table>
-
+</table>
 	</div><!-- end div panel-->
 	
 <%-- 
@@ -371,27 +189,7 @@
 	<%@include file="ModificaVolo.jsp"%> 
 	
 	
-	<!-- CANCELLAZIONE VOLO -->
 
-	<button class="accordion">Cancellazione Volo</button>
-
-	<!-- Pannello -->
-	<div class="panel">
-		<table class="myTable tabIns">
-		
-		<form action="CancVolo" method="post">
-
-<tr class="insert">
-					<td class="AD_text col1">Codice ID volo:</td>
-					<td class="US_input col2"><input type="text"
-				class="ins_ID" placeholder="Codice ID" name="codice_id" id="cod_id"></td>
-					<td class="col3 basso_dest"><input type="submit" value="invio"
-						id="submit_insVolo" class="US_sub"></td>
-				</tr>
-		
-		</form>
-	</table>
-	</div>
 
 
 
@@ -400,6 +198,40 @@
 
 
 	<%@ include file="footer.jsp"%>
+ <%String error= (String) session.getAttribute("error1");
+     if(error== "false"){
+ %>
+    <H1 class="Titol">  L'inserimento non è andato a buon fine</H1>
+		
+<%} %>
+
+       <% String variabileCostoVolo = (String) session.getAttribute("variabileCostoVolo"); 
+         if(variabileCostoVolo == "false"){ %>
+         <script>  alert("Carattere non valido per il costo");
+         </script>
+         
+<%   session.setAttribute("variabileCostoVolo", "true");} %>
+
+       <% String variabilePerCodiceVolo = (String) session.getAttribute("variabilePerCodiceVolo"); 
+         if(variabilePerCodiceVolo == "false"){ %>
+         <script>  alert("Codice Identificativo già utilizzato");
+         </script>
+         
+<%   session.setAttribute("variabilePerCodiceVolo", "true");} %>
+
+       <% String variabileCostoModifica = (String) session.getAttribute("variabileCostoModifica"); 
+         if(variabileCostoModifica == "false"){ %>
+         <script>  alert("Carattere non valido per il costo");
+         </script>
+         
+<%   session.setAttribute("variabileCostoModifica", "true");} %>
+
+  <% String variabilePerModificaVolo = (String) session.getAttribute("variabilePerModificaVolo"); 
+         if(variabilePerModificaVolo == "false"){ %>
+         <script>  alert("Codice Identificativo non presente nel nostro database");
+         </script>
+         
+<%   session.setAttribute("variabilePerModificaVolo", "true");} %>
 
 </body>
 

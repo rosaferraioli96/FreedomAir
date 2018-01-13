@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import connessioneDB.exc.LoginFailedException;
 import connessioneDB.exc.RicercaVoloFailedException;
+import entita.Annunci;
 import entita.Biglietto;
 import entita.Carrello;
 import entita.Carta;
@@ -31,10 +32,10 @@ public class QueryBuilder {
 	}
 
 
-	public Client getLogin(String nome, String pass, int type) throws SQLException, LoginFailedException{
+	public Client getLogin(String nome, String pass, int type,int tipo) throws SQLException, LoginFailedException{
 		PreparedStatement preparedStatement ;
 
-		String query="SELECT * FROM cliente WHERE username='"+ nome + "' AND password ='"+pass+"' AND tipo ="+type+";";
+		String query="SELECT * FROM cliente WHERE username='"+ nome + "' AND password ='"+pass+"' AND tipo ='"+type+"' AND tipo_promoter ='"+tipo+"';";
 
 		preparedStatement = db.getConnessione().prepareStatement(query);
 		ResultSet rs = preparedStatement.executeQuery(query);
@@ -484,6 +485,25 @@ public class QueryBuilder {
 			preparedStatement.close();
 			return allVolo;
 		}
+		//****************************** getAllAnnunci*********************************
+				public ArrayList<Annunci> getAllAnnunci() throws SQLException{
+					ArrayList<Annunci> allVolo= new ArrayList<>();
+					PreparedStatement preparedStatement ;
+					String query="SELECT * FROM annunci; " ;
+					preparedStatement = db.getConnessione().prepareStatement(query);
+
+
+					ResultSet rs = preparedStatement.executeQuery(query);
+				
+					while(rs.next()){
+						allVolo.add(new Annunci(rs.getInt("codice_id"),
+								rs.getString("luogo"), 
+								rs.getString("tipo")));
+					}
+					
+					preparedStatement.close();
+					return allVolo;
+				}
 		
 		//****************************** cancVolo*********************************	 
 		//14-10-17 QUERY CHE PRENDE IL CODICE ID DEL VOLO E POI LO CANCELLA
@@ -516,11 +536,58 @@ public class QueryBuilder {
 		
 			}
 			
+
+			//****************************** cancannunci*********************************	 
+			//14-10-17 QUERY CHE PRENDE IL CODICE ID DEL VOLO E POI LO CANCELLA
+				public  ArrayList<Annunci> cancAnnunci(int codID) throws SQLException {
+					   PreparedStatement preparedStatement ;
+						ArrayList<Annunci> allannunci= new ArrayList<>();
+					   String query = "DELETE FROM annunci WHERE codice_id ='"+ codID+"';";
+					   preparedStatement = db.getConnessione().prepareStatement(query);  
+					      preparedStatement.executeUpdate(query);
+					      String query1="SELECT * FROM annunci;" ;
+							preparedStatement = db.getConnessione().prepareStatement(query1);
+
+
+							ResultSet rs = preparedStatement.executeQuery(query1);
+						
+					      
+							while(rs.next()){
+								allannunci.add(new Annunci(rs.getInt("codice_id"),
+										rs.getString("luogo"), 
+										rs.getString("tipo")));
+							}
+							
+					      preparedStatement.close();
+					  	return allannunci;
+			
+				}
+				
 	//****************************** getUsername*********************************	 
 	// ho confrontato l'username dato da input se è uguale a qualcuno gia esistente nel db mi faccio restituire
 	//true se il valore è presente nel db 
 	public boolean isClienteExistByUsername(String username) throws SQLException{
 		String query="SELECT username FROM cliente WHERE username ='"+ username + "';";
+		PreparedStatement preparedStatement = db.getConnessione().prepareStatement(query);
+	
+		ResultSet rs = preparedStatement.executeQuery(query);
+		boolean exist = rs.next();
+		rs.close();
+		preparedStatement.close();
+		return exist;
+	}
+	public boolean CodiceidExist(String codice_id) throws SQLException{
+		String query="SELECT codice_id FROM volo WHERE codice_id ='"+ codice_id + "';";
+		PreparedStatement preparedStatement = db.getConnessione().prepareStatement(query);
+	
+		ResultSet rs = preparedStatement.executeQuery(query);
+		boolean exist = rs.next();
+		rs.close();
+		preparedStatement.close();
+		return exist;
+	}
+	public boolean CodiceAnnunciExist(int codice_id) throws SQLException{
+		String query="SELECT codice_id FROM annunci WHERE codice_id ='"+ codice_id + "';";
 		PreparedStatement preparedStatement = db.getConnessione().prepareStatement(query);
 	
 		ResultSet rs = preparedStatement.executeQuery(query);
@@ -553,9 +620,19 @@ public class QueryBuilder {
 	   preparedStatement = db.getConnessione().prepareStatement(query);
 
 	      preparedStatement.executeUpdate(query);
-	      
+	    
 	  }
-	 
+	//****************************** Inserimento annunci*********************************	 
+		 public void inserimentoAnnuncio(Annunci annunci) throws SQLException {
+		   PreparedStatement preparedStatement ;
+		   //ArrayList<Volo> allVolo = new ArrayList<>();
+
+		   String query = "INSERT INTO Annunci( luogo, tipo) VALUES ('"+annunci.getluogo()+"',  '"+annunci.getTipo()+"');";
+		   preparedStatement = db.getConnessione().prepareStatement(query);
+
+		      preparedStatement.executeUpdate(query);
+		      
+		  }
 	//****************************** Ricerca Biglietto*********************************	 
 		 public ArrayList<Biglietto> ricercaBiglietto(String uname) throws SQLException {
 		   PreparedStatement preparedStatement ;
@@ -834,7 +911,9 @@ public class QueryBuilder {
 		System.out.println("Inserisci:: ");
 
 		String numeri1=in.next();
-	 System.out.println(nuova.getVoloByUname(numeri1));
+		
+	System.out.println(nuova.CodiceidExist(numeri1));
+	 //System.out.println(nuova.getVoloByUname(numeri1));
 	
 	}
 }

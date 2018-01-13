@@ -1,7 +1,13 @@
 @charset "ISO-8859-1";
 
 
-
+body{
+	
+	background-image: url(../immagini/sfondo/bolle2.jpg);
+	background-repeat: initial;
+	
+	background-size: 100%;
+}
 .menu_cliente{
 	
 }

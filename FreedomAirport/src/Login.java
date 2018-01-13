@@ -44,6 +44,7 @@ public class Login extends HttpServlet {
 		String uname=request.getParameter("uname");
 		String pass= request.getParameter("pass");
 		String amministratore= request.getParameter("amministratore");
+		String promoter= request.getParameter("promoter");
 		//prendo i parametri per la ricerca e per l 'aggiunta nel carrello
 		String username= (String) session.getAttribute("name");
 		String variabileVoloA= request.getParameter("codiceVolo");
@@ -52,13 +53,13 @@ public class Login extends HttpServlet {
 		try {
 			
 			QueryBuilder queryBuilder = new QueryBuilder();
-			
-			queryBuilder.getLogin(uname, pass, TypeUsers.valueOf(amministratore).getValue());
+			queryBuilder.getLogin(uname, pass, TypeUsers.valueOf(amministratore).getValue(), TypeUsersPromoter.valueOf(promoter).getValue());
 			session.setAttribute("name",uname);
 
 		
 			session.setAttribute("amministratore", TypeUsers.valueOf(amministratore).getValue());
 			session.setAttribute("uname", uname);
+			session.setAttribute("promoter", TypeUsersPromoter.valueOf(promoter).getValue());
 		
 			//salvo nella sessione il nome utente
 			String nomeUtente = queryBuilder.getNome(uname, pass, TypeUsers.valueOf(amministratore).getValue());
@@ -137,5 +138,18 @@ public class Login extends HttpServlet {
 			return value;
 		}
 	}
-	
+	enum TypeUsersPromoter {
+		Client(0),Promoter(1);
+		
+		private int value;
+
+		private TypeUsersPromoter(int value) {
+			this.value = value;
+		}
+		
+		public int getValue() {
+			return value;
+		}
+	}
+
 }

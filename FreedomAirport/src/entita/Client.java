@@ -7,6 +7,7 @@ public class Client {
 	public Client(){
 		
 	}
+
 	public Client(String nome, String cognome,  String date, String paese,
 			String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono){
 		this.nome= nome;
@@ -21,10 +22,10 @@ public class Client {
 		this.numero_telefono= numero_telefono;
 	}
 
-public Client(String nome){
+	public Client(String nome){
 	this.nome= nome;
 }
-public Client(String username, String password, String nome, String cognome,  String date, String paese,
+	public Client(String username, String password, String nome, String cognome,  String date, String paese,
 		String indirizzo, String codice_fiscale, String carta_identita, String passaporto, String email, String numero_telefono){
 	this.username=username;
 	this.password= password;

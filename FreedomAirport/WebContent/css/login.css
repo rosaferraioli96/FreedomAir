@@ -81,6 +81,11 @@
  font-family: sans-serif;
  margin-left: 7%;
 }
+.text_check10{
+ font-family: sans-serif;
+ margin-left: 7%;
+}
+
 /* *********   checkbox  ************ */
 
  
@@ -288,7 +293,8 @@ to {
 @media screen and (min-width: 1200px) {
 
 #text_h4{
-	bottom: 3%;
+	padding-top: 15px;
+	top:80%;
 }
 
 
@@ -328,7 +334,8 @@ to {
 /**************************** MAX-WIDTH 1199 - MIN-WIDTH 1000 **************************************/
 @media screen and (max-width: 1199px) and (min-width: 1000px){
 #text_h4{
-	bottom: 13%;
+	padding-top: 15px;
+	top:75%; 
 }
 
 
@@ -366,17 +373,27 @@ to {
 
 
 
+
+.modal-content {
+	width: 52%; /* Could be more or less, depending on screen size */
+	/* height: 60%; */
+}	
+
+	}
+
+
 /**************************** MAX-WIDTH 999 - MIN-WIDTH 900 **************************************/
 @media screen and (max-width: 999px) and (min-width: 900px){
 
 #text_h4{
-	bottom: 18%;
+	padding-top: 15px;
+	top:58%; 
 }
 
 
 .modal-content {
 	width: 52%; /* Could be more or less, depending on screen size */
-	height: 70%;
+	height: 60%;
 }	
 	
 
@@ -413,13 +430,14 @@ to {
 @media screen and (max-width: 899px) and (min-width: 750px){
 
 #text_h4{
-	bottom: 17%;
+	top: 57%;
+	padding-bottom: 5px;
 }
 
 
 .modal-content {
 	width: 56%; /* Could be more or less, depending on screen size */
-	height: 73%;
+	height: 60%;
 	
 }	
 	
@@ -457,14 +475,13 @@ to {
 @media screen and (max-width: 749px) and (min-width: 570px){
 	
 #text_h4{
-	bottom: 21%;
-	left: 23%;
+	top: 55%;
 }
 
 
 .modal-content {
 	width: 65%; /* Could be more or less, depending on screen size */
-	height: 70%;
+	height: 58%;
 	
 }	
 	
@@ -501,14 +518,14 @@ to {
 @media screen and (max-width: 569px) and (min-width: 470px){
 	
 #text_h4{
-	bottom: 23%;
-	left: 20%;
+	top: 56%;
+	padding-bottom: 5px;
 }
 
 
 .modal-content {
 	width: 67%; /* Could be more or less, depending on screen size */
-	height: 70%;
+	height: 60%;
 	
 }	
 

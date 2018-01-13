@@ -47,6 +47,7 @@ public class InsertVolo extends HttpServlet {
 		doGet(request, response);
 		response.setContentType("text/html");
 		PrintWriter out= response.getWriter();
+		HttpSession session=request.getSession(true);  
 
 		String codice_id = request.getParameter("codice_id");
 		String  luogo_partenza = request.getParameter("luogo_partenza"); 
@@ -55,16 +56,29 @@ public class InsertVolo extends HttpServlet {
 		String luogo_arrivo = request.getParameter("luogo_arrivo");
 		String  data_arrivo = request.getParameter("data_arrivo");
 		String  ora_arrivo = request.getParameter("ora_arrivo");
-        float costo= Float.parseFloat(request.getParameter("costo")); 
+		String costoVar= request.getParameter("costo");
+		String variabileCostoVolo= "true";
+		   String variab= "true";
+		if(!costoVar.matches("[0-9]+")){
+			variabileCostoVolo = "false";
+		    session.setAttribute("variabileCostoVolo", variabileCostoVolo);
+		    response.sendRedirect("admin.jsp");
+	    }else{
+	        float costo= Float.parseFloat(costoVar); 
+    
 		try {
 			QueryBuilder queryBuilder = new QueryBuilder();
-
-			Volo volo = new Volo (codice_id, luogo_partenza, data_partenza, ora_partenza, luogo_arrivo, data_arrivo, ora_arrivo, costo);
-			queryBuilder.inserimentoVolo(volo);
-			ArrayList<Volo> variabile= queryBuilder.getAllVolo();
-			HttpSession session=request.getSession(true);  
-			session.setAttribute("volo", variabile);
-			session.setMaxInactiveInterval(60*5);
+			  if(!queryBuilder.CodiceidExist(codice_id)){
+				  Volo volo = new Volo (codice_id, luogo_partenza, data_partenza, ora_partenza, luogo_arrivo, data_arrivo, ora_arrivo, costo);
+					queryBuilder.inserimentoVolo(volo);
+					ArrayList<Volo> variabile= queryBuilder.getAllVolo();
+					session.setAttribute("volo", variabile);
+					session.setMaxInactiveInterval(60*5);
+		
+			  }else{
+				   variab= "false";
+				   session.setAttribute("variabilePerCodiceVolo", variab);
+			  }
 			response.sendRedirect("admin.jsp");
 		} catch (RicercaVoloFailedException e) {
 			out.println("ERRORE");
@@ -78,5 +92,5 @@ public class InsertVolo extends HttpServlet {
 	}
 
 }
-
+}
 

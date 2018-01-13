@@ -17,8 +17,14 @@
 	<%@ include file="header.jsp"%>
 
 
-
-
+	<%
+      String name1 = (String) session.getAttribute("name");
+     Integer amministratore1 = (Integer) session.getAttribute("amministratore"); 
+     Integer promoter1=(Integer) session.getAttribute("promoter");
+     if (name1 != null) {
+    
+      if (amministratore1 == 0 && promoter1== 0) {
+     %>
 
 	<!--content -->
 	<!-- tabella per ricercare il volo -->
@@ -83,9 +89,12 @@
 		</article>
 
 	</section>
+<% } else if (amministratore1 == 1 && promoter1 ==1){%> 
 
-	<!-- bottone per tornare all'inizio della pagina -->
-	<button onclick="topFunction()" id="Btn-Top" class="butt-log" title="Vai sopra"></button>
+
+<%}} %>
+	<!-- bottone per tornare all'inizio della pagina 
+	<button onclick="topFunction()" id="Btn-Top" class="butt-log" title="Vai sopra"></button>-->
 
 	<%@ include file="footer.jsp"%>
 
@@ -143,7 +152,7 @@
   
   
   
-  
+ <!--  
 <script type="text/javascript">
 // When the user scrolls down 40px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -161,5 +170,5 @@ function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
-</script>
+</script>--> 
 </html>

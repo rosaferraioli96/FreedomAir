@@ -24,6 +24,7 @@
 	<%
       String name = (String) session.getAttribute("name");
      Integer amministratore = (Integer) session.getAttribute("amministratore"); 
+     Integer promoter=(Integer) session.getAttribute("promoter");
      if (name != null) {
     %>
 	<%-- Welcome: <%=name%> --%>
@@ -34,7 +35,7 @@
      </form>  -->
 
 	<%
-      if (amministratore == 0) {
+      if (amministratore == 0 && promoter== 0) {
      %>
 
 	<ul class="ul_nav">
@@ -61,7 +62,7 @@
 	</ul>
 
 	<%
-      } else {
+      } else if (amministratore == 1){
      %>
 	<ul class="ul_nav">
 
@@ -81,11 +82,31 @@
 			</div>
 		</li>
 	</ul>
-	<!--  <a href="admin.jsp">Amministratore</a> -->
-	<%
-      }
-     %>
+	
 
+	<%
+      }else if(promoter==1){
+    	  %>
+    		<ul class="ul_nav">
+
+    			<li>
+    				<div class="down">
+    					<button onclick="myFunct()" class="btn">
+    						<!-- <img class="im_login"src="immagini/icone/user.png" alt="utente" /> -->
+    					</button>
+
+    					<div id="mydown" class="down-cont">
+    					<a href="#" class="welcome">Welcome : <%=name%> </a>
+    						<a href="promoter.jsp">Opzioni</a>
+    						<form action="Logout" method="post" class="Login">
+    						 <a href="#"><input type="submit" class="logout" value="Logout" onclick="myFunction()"></a>
+    						</form>
+    					</div>
+    				</div>
+    			</li>
+    		</ul>
+    <%  }
+	%>
 
 
 
@@ -168,7 +189,7 @@
 
 			<div id="input">
 				<input type="text" class="input_log" required
-					placeholder="Enter Username" name="uname" id="username">
+					placeholder="Enter Username" name="uname" id="username" maxlength="6">
 			</div>
 
 			<div id="name">
@@ -177,7 +198,7 @@
 
 			<div id="input">
 				<input type="password" placeholder="Enter Password" name="pass"
-					required id="password">
+					required id="password" maxlenght="10">
 				<h5 id="text_pax">
 					<a href="PasswordDimenticata.jsp">Password Dimenticata?</a>
 				</h5>
@@ -187,7 +208,12 @@
 
 			<input type="checkbox" name="amministratore" id="amministratore"
 				value="true"> <label for="amministratore" class="text_check">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;amministratore
-			</label> <input type="submit" value="Login" id="submitLogin">
+			</label> 
+			
+			<input type="checkbox" name="promoter" id="promoter" value="true"> 
+			<label for="promoter" class="text_check10"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; promoter
+			</label>
+			<input type="submit" value="Login" id="submitLogin">
 
 			<div id="text">
 				<h4 id="text_h4">
@@ -249,10 +275,14 @@ window.onclick = function(event) {
 
 			var username = $('#username').val();
 			var password = $('#password').val();
-
+            
 			var amministratore = "Admin";
+			var promoter="Promoter";
 			if ($("#amministratore").is(":not(:checked)")) {
 				amministratore = "Client";
+			}
+			if ($("#promoter").is(":not(:checked)")) {
+				promoter = "Client";
 			}
 
 			$.ajax({
@@ -261,7 +291,8 @@ window.onclick = function(event) {
 				data : {
 					uname : username,
 					pass : password,
-					amministratore : amministratore
+					amministratore : amministratore,
+					promoter:promoter
 				},
 				success : function(result) {
 					if (parseInt(result)) {
@@ -278,5 +309,8 @@ window.onclick = function(event) {
 		});
 
 	});
+	
+	
+	
 </script>
 </html>

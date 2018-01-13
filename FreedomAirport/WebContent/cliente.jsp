@@ -91,16 +91,16 @@
 			</form>
 
 
-			<!--  Visualizza Codice Fiscale-->
-			<%
+			<!--  Visualizza Codice Fiscale
+			
 				String codiceFiscale = (String) session.getAttribute("codiceFiscale");
-			%>
+			
 			<tr>
 				<td></td>
-				<td class="AD_text top">Codice Fiscale: <%=codiceFiscale%></td>
+				<td class="AD_text top">Codice Fiscale: codiceFiscale%></td>
 			</tr>
 
-			<!-- Form che serve alla modifica dei dati utenti-->
+			<!-- Form che serve alla modifica dei dati utenti
 			<form action="ModificaDatiUtenti" method="post">
 				<tr class="insert">
 					<td class="AD_text">Nuovo Codice Fiscale:</td>
@@ -112,7 +112,7 @@
 
 
 
-			<!--  Visualizza Carta Identita-->
+			<!--  Visualizza Carta Identita
 			<%
 				String cartaIdentita = (String) session.getAttribute("cartaIdentita");
 			%>
@@ -121,7 +121,7 @@
 				<td class="AD_text top">Carta Identita: <%=cartaIdentita%></td>
 			</tr>
 
-			<!-- Form che serve alla modifica dei dati utenti-->
+			<!-- Form che serve alla modifica dei dati utenti
 			<form action="ModificaDatiUtenti" method="post">
 				<tr class="insert">
 					<td class="AD_text">Nuova Carta Identità:</td>
@@ -134,7 +134,7 @@
 
 
 
-			<!--  Visualizza passaporto-->
+			<!--  Visualizza passaporto
 			<%
 				String passaporto = (String) session.getAttribute("passaporto");
 			%>
@@ -143,7 +143,7 @@
 				<td class="AD_text top">Passaporto: <%=passaporto%></td>
 			</tr>
 
-			<!-- Form che serve alla modifica dei dati utenti-->
+			<!-- Form che serve alla modifica dei dati utenti
 			<form action="ModificaDatiUtenti" method="post">
 				<tr class="insert">
 					<td class="AD_text">Nuovo Passaporto:</td>
@@ -155,7 +155,7 @@
 			</form>
 
 
-
+-->
 			<!--  Visualizza Email-->
 			<%
 				String email = (String) session.getAttribute("email");
@@ -176,7 +176,7 @@
 			</form>
 
 
-			<!--  Visualizza numero_telefono-->
+			<!--  Visualizza numero_telefono
 			<%
 				String numero_telefono = (String) session.getAttribute("numero_telefono");
 			%>
@@ -185,7 +185,7 @@
 				<td class="AD_text top">Numero Telefono: <%=numero_telefono%></td>
 			</tr>
 
-			<!-- Form che serve alla modifica dei dati utenti-->
+			<!-- Form che serve alla modifica dei dati utenti
 			<form action="ModificaDatiUtenti" method="post">
 				<tr class="insert">
 					<td class="AD_text">Nuovo Telefono:</td>
@@ -194,7 +194,7 @@
 					<td class="padd"><input type="submit" value="invio" class="but_click"></td>
 				</tr>
 			</form>
-
+-->
 		</table>
 
 	</div>	<!-- end div panel--> 

@@ -60,11 +60,11 @@
         </form>
                 
         
-           <form action="EliminaCarrello" method="post">
+           <!-- <form action="EliminaCarrello" method="post">
    <input type="hidden" value="<%=v.getCodice_id() %>" name="codice_id">
-      <tr>
+      <tr>-->
    <td><a href="acquistoBiglietto.jsp" class="tit"><strong>Acquista</strong></a></td>
-         <td> <input type="submit" value="Elimina" class="elc"> </td>
+         <!--  <td> <input type="submit" value="Elimina" class="elc"> </td>-->
       </tr>
    </form>
 

@@ -56,7 +56,7 @@
      background-repeat: no-repeat;
      width: 30px;
    height: 30px;
-   margin-left: 25%; 
+   margin-left: 35%; 
 }
 
 .btn:hover, .dropbtn:focus {
@@ -274,9 +274,18 @@ nav ul ul li {
 
 
 /*********************************************** RESPONSE ***********************************************/
-
-
-
+@media screen and (max-width : 500px) and (min-width : 385px){ 	
+	.col-content{
+	margin-left: 8%;}
+}
+@media screen and (max-width : 425px) and (min-width : 380px){ 	
+	.col-content{
+	margin-left: 15px;}
+}
+@media screen and (max-width : 700px) and (min-width : 501px){ 	
+	.col-content{
+	margin-left: 12%;} 
+}
 /******************************** MIN-WIDTH 769 ***************************************/
 
 @media screen and (min-width : 1200px) {
@@ -289,9 +298,9 @@ nav ul ul li {
 	
 .shop-menu ul li{ padding-left: 10px; }
 	
-.ul_nav{
+/* .ul_nav{
 	width: 14%;
-}
+} */
 
 
 }
@@ -309,11 +318,11 @@ nav ul ul li {
 	width: 65%;
 	padding-top: 1%;
 }
-	.shop-menu ul li{ padding-left: 20px; }
+	.shop-menu ul li{ padding-left: 1px; }
 	
-.ul_nav{
+/* .ul_nav{
 	width: 20%;
-}
+} */
 
 
 }
@@ -340,12 +349,12 @@ nav ul ul li {
 
 @media screen and (max-width : 768px) and (min-width : 451px){
 	
-.ul_nav{ width: 30%;}
+/* .ul_nav{ width: 30%;}
 
 .ul_nav{
 	width: 25%;
 }
-
+ */
 
 }
 
@@ -385,10 +394,10 @@ nav ul ul li {
 	font-size: 16px;
 }
 
-.ul_nav{
+/* .ul_nav{
 	width: 30%;
 }
-
+ */
 /***** NAV SUPERIORE-FINE****/
 
 
@@ -497,7 +506,7 @@ nav ul ul .toggle,  nav ul ul a { padding: 0 40px; }
 nav a:hover,  { background-color: #000000; }
 
 /**riferito a volo, check-in, bagagli**/
-nav ul li ul li .toggle,  nav ul ul a { background-color: #6699ff; }
+nav ul li ul li .toggle,  nav ul ul a { background-color: yellow; }
 
 nav ul ul {
   float: none;
@@ -527,7 +536,7 @@ nav ul ul li {
 	
 .ul_nav{
 	padding-top: 2%;
-	width: 40%;
+	/* width: 40%; */
 }
 
 .logo_pegaso {
@@ -537,7 +546,9 @@ nav ul ul li {
 	
 }
 
-
+.bott_volo{
+	width: 100%;
+}
 
 }
 /**************************** MAX-WIDTH 450-FINE **************************************/

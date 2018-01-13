@@ -29,6 +29,7 @@ public class AcquistoBiglietto extends HttpServlet {
      */
     public AcquistoBiglietto() {
         super();
+
         // TODO Auto-generated constructor stub
     }
 
@@ -51,31 +52,48 @@ public class AcquistoBiglietto extends HttpServlet {
 		int numero_posto =Integer.parseInt(request.getParameter("numero_posto")); 
 		String codice_id= request.getParameter("codice_id");
 		String username= (String) session.getAttribute("name");
-	
+		String variabileNumero = "true";
 	    String tipo_carta = request.getParameter("tipo_carta");
-	    int numero_carta= Integer.parseInt(request.getParameter("numero_carta"));
+	    String carta=request.getParameter("numero_carta");
+	    if(!carta.matches("[0-9]+")){
+			variabileNumero = "false";
+		    session.setAttribute("variabileNumero", variabileNumero);
+		    response.sendRedirect("acquistoBiglietto.jsp");
+	    }else{
+	      int numero_carta= Integer.parseInt(carta);
+	    
+	   
 	    String nominativo= request.getParameter("nominativo");
 	    String validità= request.getParameter("validità");
 	    String prova ="true"; 
 	    
+	    session.setAttribute("numeroP", true);
+		   String variab= "true";
 		try {
 			Carta variabileCarta= new Carta(numero_carta,tipo_carta, nominativo, validità );
 		    Biglietto variabileBiglietto= new Biglietto(null, intestatario, numero_posto, username, codice_id );
 
 		    QueryBuilder nuova = new QueryBuilder();
-		  
-		   if( nuova.insertCarta(variabileCarta).equals(prova)){
-		    nuova.insertBiglietto(variabileBiglietto, variabileCarta, username, codice_id);
-		    session.setAttribute("prova", prova);
-			ArrayList<Volo> var = nuova.getVoloByUname(username);
-			session.setAttribute("voloCliente", var);
-			String variabileNulla= "true";
-	    	session.setAttribute("variabileNulla", variabileNulla);
-		   }else{
-			   prova="false";
-			   session.setAttribute("prova", prova);
+		  String provaCodice= "true";
+		   if(!nuova.CodiceidExist(codice_id)){
+			   variab= "false";
+				   session.setAttribute("variabilePerCodice", variab);
+		  }else{
+			   if( nuova.insertCarta(variabileCarta).equals(prova)){
+			    nuova.insertBiglietto(variabileBiglietto, variabileCarta, username, codice_id);
+			    session.setAttribute("prova", prova);
+				ArrayList<Volo> var = nuova.getVoloByUname(username);
+				session.setAttribute("voloCliente", var);
+				String variabileNulla= "true";
+		    	session.setAttribute("variabileNulla", variabileNulla);
+				   } else{
+				   prova="false";
+				   session.setAttribute("prova", prova);
+			   }
+				
 		   }
 		    response.sendRedirect("acquistoBiglietto.jsp");
+		
 		} catch (ConnessioneException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,5 +103,5 @@ public class AcquistoBiglietto extends HttpServlet {
 		}
 
 	}
-
+	}
 }
